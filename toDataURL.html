@@ -12,6 +12,8 @@
     <a href="https://www.html5canvastutorials.com/advanced/html5-canvas-save-drawing-as-an-image/">HTML5 Canvas Save Drawing As An Image</a>
     <canvas id="myCanvas" width="578" height="200" style="display:none;"></canvas>
     <img id="canvasImg" alt="Right click to save me!">
+    <button type="submit" id="download" >Download!</button>
+    <a id="test" href="" download>download</a>
     <script>
       var canvas = document.getElementById('myCanvas');
       var context = canvas.getContext('2d');
@@ -38,6 +40,17 @@
       // set canvasImg image src to dataURL
       // so it can be saved as an image
       document.getElementById('canvasImg').src = dataURL;
+      document.getElementById('test').href = dataURL;
+
+
+
+const download = document.getElementById("download");
+
+download.addEventListener('click', request);
+
+function request() {
+	window.location = dataURL;
+}
 
     </script>
   </body>
