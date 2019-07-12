@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VH</title>
+	<style type="text/css">
+		html{
+			box-sizing: border-box;
+		}
+		* > * {
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			background-color: red;
+		}
+		header,
+		main,
+		footer{
+
+		}
+		header{
+			height: 100px;
+			background-color: #ddd;
+		}
+		main{
+			height: calc(100vh - 100px - 50px);
+			background-color: #f0f0f0;
+		}
+		footer{
+			height: 50px;
+			background-color: #ddd;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>header</h1>
+	</header>
+	<main>
+		<div class="content">
+			<h2>content</h2>
+			<div id="display"></div>
+			<button id="update">màj</button>
+		</div>
+	</main>
+	<footer>
+		<span>footer</span>
+	</footer>
+	<script type="text/javascript">
+		var DOM = {};
+		var button = document.getElementById('update');
+		var display = document.getElementById('display');
+
+		function update(){
+			DOM.header = document.getElementsByTagName('header')[0].offsetHeight;
+			DOM.main = document.getElementsByTagName('main')[0].offsetHeight;
+			DOM.footer = document.getElementsByTagName('footer')[0].offsetHeight;
+
+			var textToDisplay = JSON.stringify(DOM);
+			display.innerHTML = textToDisplay;
+		};
+
+		button.addEventListener("click", update, false);
+
+	</script>
+</body>
+</html>
