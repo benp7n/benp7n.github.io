@@ -12,7 +12,7 @@
 		/* colors */
 		:root{
 			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
-			--color-ocean-blue: rgb(var(--color-ocean-blue-rgba)); /* #006eab */
+			--color-ocean-blue: #006eab;
 			--color-dark-grey: #444;
 			--color-light-grey: #ccc;
 			--color-white: #fff;
@@ -99,7 +99,7 @@
 		}
 
 
-		[id^="ArbreQ"] .choice{
+		[id^="ArbreQ"] [class^="choice-"]{
 			flex: 1 1;
 			height: 4rem;
 			font-size: 1.4rem;
@@ -110,14 +110,15 @@
 			padding: 0 1rem 0 0.5rem;
 		}
 
-		[id^="ArbreQ"] .choice:hover{
+		[id^="ArbreQ"] [class^="choice-"]:hover{
 			border-left: 0.5rem solid var(--color-ocean-blue);
 		}
 
 
-		[id^="ArbreQ"] .choice.defaut{
+		[id^="ArbreQ"] [class^="choice-"].defaut{
 			font-weight: normal;
 			background-color: rgba(var(--color-ocean-blue-rgba), 0.1);
+			border-left-color: rgba(var(--color-ocean-blue-rgba), 0.1);
 		}
 
 	</style>
@@ -136,28 +137,31 @@
 	</div>
 
 	<ul>
-		<li><button class="choice"><span>apprendre à chercher un emploi</span></button></li>
-		<li><button class="choice"><span>rechercher un emploi avec une aide professionnelle</span></button></li>
-		<li><button class="choice"><span>préparer un entretien d'embauche avec une aide professionnelle</span></button></li>
-		<li><button class="choice"><span>savoir quelles entreprises recrutent</span></button></li>
-		<li><button class="choice"><span>en alternance (apprenti, contrat de professionnalisation)</span></button></li>
-		<li><button class="choice"><span>rechercher un stage</span></button></li>
-		<li><button class="choice"><span>me renseigner sur le marché du travail</span></button></li>
-		<li><button class="choice"><span>me renseigner sur la mobilité à l'étranger</span></button></li>
-		<li><button class="choice"><span>m'investir dans la citoyenneté et l'engagement</span></button></li>
-		<li><button class="choice defaut"><span>rien de plus précis</span></button></li>
+		<li><button class="choice-01"><span>apprendre à chercher un emploi</span></button></li>
+		<li><button class="choice-02"><span>rechercher un emploi avec une aide professionnelle</span></button></li>
+		<li><button class="choice-03"><span>préparer un entretien d'embauche avec une aide professionnelle</span></button></li>
+		<li><button class="choice-04"><span>savoir quelles entreprises recrutent</span></button></li>
+		<li><button class="choice-05"><span>en alternance (apprenti, contrat de professionnalisation)</span></button></li>
+		<li><button class="choice-06"><span>rechercher un stage</span></button></li>
+		<li><button class="choice-07"><span>me renseigner sur le marché du travail</span></button></li>
+		<li><button class="choice-08"><span>me renseigner sur la mobilité à l'étranger</span></button></li>
+		<li><button class="choice-09"><span>m'investir dans la citoyenneté et l'engagement</span></button></li>
+		<li><button class="choice-10 defaut"><span>rien de plus précis</span></button></li>
 	</ul>
 </div>
 <script type="text/javascript">
-	var buttons = document.getElementsByTagName('button');
-	
-	function choiceEval(e){
-		console.log(e);
-	};
 
-	for (var button in buttons) {
-		button.addEventListener("click", choiceEval);
-	} 
+const buttons = document.querySelectorAll('button')
+
+buttons.forEach(button => {
+	button.addEventListener('click', event => {
+		event.preventDefault();
+		event.target.tagName == "BUTTON" ? alert('button') : alert('span');
+		console.log( event );
+		console.log( event.target.className );
+	});
+});
+
 </script>
 </body>
 </html>
