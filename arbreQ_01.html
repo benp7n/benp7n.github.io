@@ -11,7 +11,8 @@
 
 		/* colors */
 		:root{
-			--color-ocean-blue: #006eab;
+			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
+			--color-ocean-blue: rgb(var(--color-ocean-blue-rgba)); /* #006eab */
 			--color-dark-grey: #444;
 			--color-light-grey: #ccc;
 			--color-white: #fff;
@@ -69,14 +70,18 @@
 			color: var(--color-white);
 			text-align: center;
 			padding: 0.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center; 
 		}
 
 		[id^="ArbreQ"] h2{
 			flex: 1 1 auto;
-			padding: 1rem;
+			padding: 0.5rem 1rem;
 			font-size: 1.6rem;
 			font-weight: 700;
-			line-height: 1;
+			line-height: 1.2;
 		}
 
 /*		[id^="ArbreQ"] .jeVoudrais-main{
@@ -112,6 +117,7 @@
 
 		[id^="ArbreQ"] .choice.defaut{
 			font-weight: normal;
+			background-color: rgba(var(--color-ocean-blue-rgba), 0.1);
 		}
 
 	</style>
