@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ArbreQ</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style type="text/css">
 
 		/* colors */
@@ -18,11 +19,8 @@
 
 		/* general */
 		html{
-/*			font-size:.625em;
-			font-size:0.625em;*/
 			font-size:62.5%;
 			box-sizing:border-box;
-
 			font-family: 'Roboto', sans-serif;
 		}
 		body{
@@ -34,7 +32,6 @@
 		*,
 		:after,
 		:before{
-			font-family: 'Roboto';
 			box-sizing:border-box;
 			margin:0;
 			padding:0;
@@ -55,21 +52,16 @@
 			display: flex;
 			flex-direction: row;
 			align-items: stretch;
-			border-bottom: 2px solid var(--color-dark-grey);
+			border-bottom: 1px solid var(--color-ocean-blue);
 		}
 
 		[id^="ArbreQ"] .retour{
-			flex: 0 0 2rem;
+			flex: 0 0 4rem;
 			height: auto;
 			font-size: 1.2rem;
 			background: var(--color-ocean-blue);
 			color: var(--color-white);
 			text-align: center;
-		}
-		[id^="ArbreQ"] .retour i{
-			font-style: normal;
-			font-size: 4rem;
-			line-height: 2rem;
 		}
 
 		[id^="ArbreQ"] h2{
@@ -82,26 +74,28 @@
 
 		[id^="ArbreQ"] li{
 			border-bottom: 1px solid var(--color-light-grey);
+			display: flex;
 		}
 
 
 		[id^="ArbreQ"] .choice{
+			flex: 1 1;
 			height: 4rem;
 			font-size: 1.4rem;
+			line-height: 1.2;
 			font-weight: bold;
 			color: var(--color-ocean-blue);
-			color: #006eab;
+			border-left: 0.5rem solid var(--color-white);
+			padding: 0 1rem 0 0.5rem;
+		}
+
+		[id^="ArbreQ"] .choice:hover{
+			border-left: 0.5rem solid var(--color-ocean-blue);
 		}
 
 
 		[id^="ArbreQ"] .choice.defaut{
 			font-weight: normal;
-		}
-
-
-		[id^="ArbreQ"] button span{
-			display: block;
-			padding: 0 1rem;
 		}
 
 	</style>
@@ -111,7 +105,7 @@
 
 	<div class="titre">
 		<button class="retour">
-			<i class="icon-arrow-back"><</i>
+			<i class="material-icons">arrow_back</i>
 			<span>retour</span>
 		</button>
 		<h2>Je voudrais <span>chercher du travail</span>
