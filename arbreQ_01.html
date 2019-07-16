@@ -139,5 +139,16 @@
 		<li><button class="choice defaut"><span>rien de plus précis</span></button></li>
 	</ul>
 </div>
+<script type="text/javascript">
+	var buttons = document.getElementsByTagName('button');
+	
+	function choiceEval(e){
+		console.log(e);
+	};
+
+	for (var button in buttons) {
+		button.addEventListener("click", choiceEval);
+	} 
+</script>
 </body>
 </html>
