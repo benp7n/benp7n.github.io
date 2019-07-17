@@ -13,9 +13,16 @@
 		:root{
 			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
 			--color-ocean-blue: #006eab;
+			--color-black: #000;
 			--color-dark-grey: #444;
 			--color-light-grey: #ccc;
 			--color-white: #fff;
+
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
 		}
 
 
@@ -59,12 +66,17 @@
 		.overlay {
 			display: none;
 		}
-		
+
+		[id^="ArbreQ"]{
+			position: relative;
+		}
+
 		[id^="ArbreQ"] .titre{
 			display: flex;
 			flex-direction: row;
 			align-items: stretch;
 			border-bottom: 1px solid var(--color-ocean-blue);
+			background-color: var(--color-white);
 		}
 
 		[id^="ArbreQ"] .retour{
@@ -101,6 +113,7 @@
 		[id^="ArbreQ"] li{
 			border-bottom: 1px solid rgba(var(--color-ocean-blue-rgba), 0.3);
 			display: flex;
+			background-color: var(--color-white);
 		}
 
 
@@ -133,7 +146,7 @@
 		[id^="ArbreQ"] [class^="choice-"].defaut{
 			font-weight: normal;
 			background-color: rgba(var(--color-ocean-blue-rgba), 0.1);
-			border-left-color: rgba(var(--color-ocean-blue-rgba), 0.1);
+			border-left-color: rgba(var(--color-ocean-blue-rgba), 0.01);
 		}
 
 		/* responsive M:720*/
