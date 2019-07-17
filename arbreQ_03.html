@@ -13,9 +13,16 @@
 		:root{
 			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
 			--color-ocean-blue: #006eab;
+			--color-black: #000;
 			--color-dark-grey: #444;
 			--color-light-grey: #ccc;
 			--color-white: #fff;
+
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
 		}
 
 
@@ -28,6 +35,13 @@
 		body{
 			font-size:1.4rem;
 			line-height:1.5;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+		}
+
+		.hidden{
+			display: none;
 		}
 
 		/* reset */
@@ -55,18 +69,27 @@
 		}
 
 		/* composant */
+
+		.overlay {
+			display: none;
+		}
+
+		[id^="ArbreQ"]{
+			position: relative;
+		}
 		[id^="ArbreQ"] .titre{
 			display: flex;
 			flex-direction: row;
 			align-items: stretch;
 			border-bottom: 1px solid var(--color-ocean-blue);
+			background-color: var(--color-white);
 		}
 
 		[id^="ArbreQ"] .retour{
 			flex: 0 0 4rem;
 			height: auto;
 			font-size: 1.2rem;
-			background: var(--color-ocean-blue);
+			background-color: var(--color-ocean-blue);
 			color: var(--color-white);
 			text-align: center;
 			padding: 0.5rem;
@@ -96,6 +119,7 @@
 		[id^="ArbreQ"] li{
 			border-bottom: 1px solid rgba(var(--color-ocean-blue-rgba), 0.3);
 			display: flex;
+			background-color: var(--color-white);
 		}
 
 
@@ -132,10 +156,36 @@
 			border-left-color: rgba(var(--color-ocean-blue-rgba), 0.1);
 		}
 
+		/* responsive M:720*/
+		@media (min-width: 720px) {
+			body{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			[id^="ArbreQ"] {
+				flex-basis: 600px;
+			}		
+
+			.overlay {
+				display: block;
+				background-color: var(--color-black);
+				opacity: 0.3;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+		}
+
 	</style>
 </head>
 
-<div id="ArbreQ-level02">
+<div class="overlay">&nbsp;</div>
+
+<div id="ArbreQ-level02" class="hiddden">
 
 	<div class="titre">
 		<button class="retour">
