@@ -55,6 +55,11 @@
 		}
 
 		/* composant */
+
+		.overlay {
+			display: none;
+		}
+		
 		[id^="ArbreQ"] .titre{
 			display: flex;
 			flex-direction: row;
@@ -94,12 +99,12 @@
 		}
 
 		[id^="ArbreQ"] li{
-			border-bottom: 1px solid var(--color-light-grey);
+			border-bottom: 1px solid rgba(var(--color-ocean-blue-rgba), 0.3);
 			display: flex;
 		}
 
 
-		[id^="ArbreQ"] [class^="choice-"]{
+/*		[id^="ArbreQ"] [class^="choice-"]{
 			flex: 1 1;
 			height: 4rem;
 			font-size: 1.4rem;
@@ -108,6 +113,16 @@
 			color: var(--color-ocean-blue);
 			border-left: 0.5rem solid var(--color-white);
 			padding: 0 1rem 0 0.5rem;
+		}*/
+		[id^="ArbreQ"] [class^="choice-"]{
+			flex: 1 1;
+			min-height: 4rem;
+			font-size: 1.6rem;
+			line-height: 1.2;
+			font-weight: 500;
+			color: var(--color-ocean-blue);
+			border-left: 0.5rem solid var(--color-white);
+			padding: 0.5rem 1rem 0.5rem 0.5rem;
 		}
 
 		[id^="ArbreQ"] [class^="choice-"]:hover{
@@ -121,8 +136,37 @@
 			border-left-color: rgba(var(--color-ocean-blue-rgba), 0.1);
 		}
 
+		/* responsive M:720*/
+		@media (min-width: 720px) {
+			body{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			[id^="ArbreQ"] {
+				flex-basis: 600px;
+			}		
+
+			.overlay {
+				display: block;
+				background-color: var(--color-black);
+				opacity: 0.3;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+		}
+
 	</style>
 </head>
+
+<div class="overlay">&nbsp;</div>
 
 <div id="ArbreQ-level02">
 
