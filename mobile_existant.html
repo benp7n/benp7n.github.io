@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
 	<title>EXISTANT</title>
 	<style type="text/css">
 		/* general */
@@ -39,6 +40,11 @@
 
 			background-color: red;
 		}
+		#wrapper{
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
 		header,
 		main,
 		footer{
@@ -46,6 +52,8 @@
 		header{
 			padding: 1rem 0.5rem;
 			background-color: #ddd;
+
+			position: relative;
 		}
 		main{
 			min-height: calc(100% - 100px - 50px);
@@ -53,6 +61,9 @@
 
 			padding: 0.5rem;
 			padding-bottom: 6rem;
+
+			position: relative;
+			flex-grow: 1;
 		}
 		footer{
 			display: flex;
@@ -78,12 +89,12 @@
 </head>
 <body>
 
-
+<div id="wrapper">
 	<header>
 		<h1>header</h1>
 	</header>
 	<main>
-		<h2>titre 01</h2>
+		<h2>titre 01.1</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		<h2>titre 02</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -95,6 +106,7 @@
 		<a href="./">&nbsp;</a>
 		<a href="./">&nbsp;</a>
 	</footer>
+</div>
 	<script type="text/javascript">
 /*
 		var DOM = {};
