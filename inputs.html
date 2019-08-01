@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>inputs</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+
+		/* colors */
+		:root{
+			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
+			--color-ocean-blue: #006eab;
+			--color-black: #000;
+			--color-dark-grey: #444;
+			--color-light-grey: #ccc;
+			--color-white: #fff;
+
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
+		}
+
+
+		/* general */
+		html{
+			font-size:62.5%;
+			box-sizing:border-box;
+			font-family: 'Roboto', sans-serif;
+		}
+		body{
+			font-size:1.6rem;
+			line-height:1.5;
+		}
+
+		.hidden{
+			display: none;
+		}
+
+		/* reset */
+		*,
+		:after,
+		:before{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		* ~ *:not(.material-icons),
+		:after,
+		:before{
+			font-family: 'Roboto';
+		}
+
+		/* style */
+		body{
+			margin: 1rem;
+		}
+
+		div{
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 3rem;
+		}
+
+		label,
+		input{
+			font-size: 1.6rem;
+		}
+
+	</style>
+</head>
+<body>
+
+<div>	
+	<label for"input-01">text</label>
+	<input type="text" name="input-01">
+</div>
+
+<div>	
+	<label for"input-01">telephone</label>
+	<input type="tel" name="input-01">
+</div>
+
+<div>	
+	<label for"input-01">telephone</label>
+	<input type="email" name="input-01">
+</div>
+
+</body>
+</html>
