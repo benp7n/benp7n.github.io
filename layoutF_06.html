@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>Flex 05</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+
+		/* colors */
+		:root{
+			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
+			--color-ocean-blue: #006eab;
+			--color-black: #000;
+			--color-dark-grey: #444;
+			--color-light-grey: #ccc;
+			--color-white: #fff;
+
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
+		}
+
+
+		/* general */
+		html{
+			font-size:62.5%;
+			box-sizing:border-box;
+			font-family: 'Roboto', sans-serif;
+		}
+		body{
+			font-size:1.4rem;
+			line-height:1.5;
+		}
+
+		.hidden{
+			display: none;
+		}
+
+		/* reset */
+		*,
+		:after,
+		:before{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		* ~ *:not(.material-icons),
+		:after,
+		:before{
+			font-family: 'Roboto';
+		}
+
+		/* FLEX COLUMN BEHAVIOR */
+		.flex-V-container{
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		.flex-V-scrolling{
+			flex: 1 1 auto;
+			position: relative;
+			overflow-y: auto;
+		}
+		.flex-V-fixed{
+			flex: 0 0 auto;
+		}
+
+		/* COMMON */
+		html,
+		body{
+			height: 100%;
+			overflow: hidden;
+		}
+
+		header{
+			padding: 1rem;
+			background-color: lightblue;
+		}
+		header span{
+			font-size: 1rem;
+			font-weight: normal;
+		}
+
+		.recapRecherche{
+			/*display: none;*/
+			padding: 1rem;
+			background-color: tan;
+		}
+
+		.liste{
+			background-color: darkseagreen;
+			counter-reset: item-number;
+			/*overflow: scroll;*/
+		}
+
+		.liste li{
+			display: block;
+			min-height: 8rem;
+			padding: 1rem;
+			counter-increment: item-number;
+		}
+
+			.liste li:before{
+				content: counter(item-number);
+				padding-right: 1rem;
+			}
+
+		.carte{
+			/*display: none;*/
+			background-color: lightseagreen;
+		}
+
+		footer {
+			/*display: none;*/
+			padding: 1rem;
+			background-color: lightblue;
+		}
+
+
+		/* responsive XS/S ONLY < 720px*/
+		@media (min-width: 0px) and (max-width: 719px) {
+		
+			.XS-flex-V-container{
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+			.XS-flex-V-scrolling{
+				flex: 1 1 auto;
+				position: relative;
+				overflow-y: auto;
+			}
+			.XS-flex-V-fixed{
+				flex: 0 0 auto;
+			}
+
+			.XS-flex-H-fixed{
+				flex: 0 0 auto;
+				width: 100%;
+			}
+
+			.carte,
+			footer{
+				display: none;
+			}
+
+		}
+
+		/* responsive M/L/XL > 720px*/
+		@media (min-width: 720px) {
+
+
+			.M-flex-V-container{
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+			.M-flex-V-scrolling{
+				flex: 1 1 auto;
+				position: relative;
+				overflow-y: auto;
+			}
+			.M-flex-V-fixed{
+				flex: 0 0 auto;
+			}
+
+
+			.M-flex-H-container{
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				/*align-items: stretch;*/
+			}
+			.M-flex-H-fluid{
+				flex: 1 1 auto;
+			}
+
+			.M-flex-H-fixed{
+				flex: 0 0 auto;
+				width: 100%;
+			}
+
+			header{
+				min-height: 12rem;
+			}
+			.liste{
+				flex: 0 0 32rem;
+			}
+			.carte{
+				/*display: block;*/
+				/*position: sticky;*/
+				/*height: 100%;*/
+			}
+			footer{
+				display: block;
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="XS-flex-V-container M-flex-V-container">
+	<header class="XS-flex-V-fixed M-flex-V-fixed">
+		<h1>header <span>01</span></h1>
+	</header>
+	<main class="XS-flex-V-scrolling M-flex-V-scrolling M-flex-H-container">
+		<div class="recapRecherche XS-flex-H-fixed M-flex-H-fixed">20 résultats</div>
+		<!-- <div class="wrapper M-flex-V-container"> -->
+			<ul class="liste M-flex-V-scrolling">
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+				<li>lorem ipsum</li>
+			</ul>
+		<!-- </div> -->
+		<div class="carte M-flex-H-fluid">
+			&nbsp;
+		</div>
+	</main>
+	<footer class="M-flex-V-fixed">footer</footer>
+</div>
+
+</body>
+</html>
