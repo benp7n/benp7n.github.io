@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>Layout Accueil 01</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+
+		/* colors */
+		:root{
+			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
+			--color-ocean-blue: #006eab;
+			--color-black: #000;
+			--color-dark-grey: #444;
+			--color-light-grey: #ccc;
+			--color-white: #fff;
+
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
+		}
+
+
+		/* general */
+		html{
+			font-size:62.5%;
+			box-sizing:border-box;
+			font-family: 'Roboto', sans-serif;
+		}
+		body{
+			font-size:1.4rem;
+			line-height:1.5;
+		}
+
+		.hidden{
+			display: none;
+		}
+
+		/* reset */
+		*,
+		:after,
+		:before{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		* ~ *:not(.material-icons),
+		:after,
+		:before{
+			font-family: 'Roboto';
+		}
+
+		/* FLEX COLUMN BEHAVIOR */
+		.flex-V-container{
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		.flex-V-scrolling{
+			flex: 1 1 auto;
+			position: relative;
+			overflow-y: auto;
+		}
+		.flex-V-fixed{
+			flex: 0 0 auto;
+		}
+
+		/* COMMON */
+		html,
+		body{
+			height: 100%;
+			overflow: hidden;
+		}
+
+		header{
+			padding: 1rem;
+			background-color: lightblue;
+		}
+		header span{
+			font-size: 1rem;
+			font-weight: normal;
+		}
+
+		.arbreQ-banner{
+			background-color: teal;
+		}
+		.arbreQ-form{
+			background-color: mediumaquamarine;
+		}
+
+		.carte{
+			background-color: papayawhip;
+		}
+
+		h2,
+		.group-input,
+		button{
+			margin: 1rem;
+		}
+
+		footer{
+			padding: 1rem;
+			background-color: lightblue;
+		}
+
+
+		/* responsive XS/S ONLY < 720px*/
+		@media (min-width: 0px) and (max-width: 719px) {
+		
+			.XS-flex-V-container{
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+			.XS-flex-V-scrolling{
+				flex: 1 1 auto;
+				position: relative;
+				overflow-y: auto;
+			}
+			.XS-flex-V-fixed{
+				flex: 0 0 auto;
+			}
+
+			header{
+				position: absolute;
+				z-index: 800;
+				width: 100%;
+				background: none;
+			}
+
+			.wrapper{
+				display: flex;
+			}
+			.arbreQ-container{
+				position: relative;
+				width: 100vw;
+				height: 100%;
+				max-width: none;
+				overflow: auto;
+				z-index: 2;
+			}
+
+			.arbreQ-banner{
+				min-height: 33vh;
+				display: flex;
+			}
+			.arbreQ-form{
+				display: flex;
+			}
+			.form-inner{
+				width: 100%;
+				height: 9em;
+				display: inline-block;
+				margin: 30px auto;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				max-width: 500px;
+			}
+
+			.group-input{
+				display: flex;
+				flex-direction: column;
+			}
+			.carte,
+			footer{
+				display: none;
+			}
+
+		}
+
+		/* responsive M/L/XL > 720px*/
+		@media (min-width: 720px) {
+
+
+			.M-flex-V-container{
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+			.M-flex-V-scrolling{
+				flex: 1 1 auto;
+				position: relative;
+				overflow-y: auto;
+			}
+			.M-flex-V-fixed{
+				flex: 0 0 auto;
+			}
+
+			.M-flex-H-container{
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				/*align-items: stretch;*/
+			}
+			.M-flex-H-fluid{
+				flex: 1 1 auto;
+			}
+
+			header{
+				min-height: 12rem;
+			}
+
+			.wrapper{
+				display: flex;
+				flex: 1 1 auto;
+			}
+			.arbreQ-container{
+				position: relative;
+				width: 50%;
+				height: 100%;
+				max-width: 700px;
+				overflow: auto;
+			}
+			.arbreQ-banner{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 200px;
+			}
+			.arbreQ-form{
+				display: flex;
+			}
+			.form-inner{
+				width: 100%;
+				height: 9em;
+				padding-left: 0;
+				display: inline-block;
+				margin: 30px auto;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				max-width: 500px;
+			}
+			.carte{
+				flex: 1 1 auto;
+				position: relative;
+			}
+			footer{
+				display: block;
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="XS-flex-V-container M-flex-V-container" data-name=".annuaire-container">
+	<header class="M-flex-V-fixed" data-name=".header-container">
+		<h1>header <span>01</span></h1>
+	</header>
+	<main class="XS-flex-V-container XS-flex-V-scrolling M-flex-V-scrolling M-flex-V-container" data-name=".annuaire-content-container">
+		<div class="wrapper XS-flex-V-scrolling" data-name=".annuaire-article-container">
+			<div class="arbreQ-container" data-name=".as-arbre-questionnement">
+				<div class="arbreQ-banner" data-name=".titre">&nbsp;</div>
+				<div class="arbreQ-form" data-name=".form">
+					<div class="form-inner" data-name="">
+						<h2>form</h2>
+						<div class="group-input">
+							<label for="select01">Option 01</label>
+							<select id="select01">
+								<option value="option01">choix 1</option>
+								<option value="option02">choix 2</option>
+								<option value="option03">choix 3</option>
+								<option value="option04">choix 4</option>
+							</select>
+						</div>
+						<div class="group-input">
+							<label for="select02">Option 02</label>
+							<select id="select02">
+								<option value="option01">choix 1</option>
+								<option value="option02">choix 2</option>
+								<option value="option03">choix 3</option>
+								<option value="option04">choix 4</option>
+							</select>
+						</div>
+						<button>Go</button>
+					</div>
+				</div> 
+			</div>
+			<div class="carte" data-name="#annuaire-map">
+				&nbsp;
+			</div>
+		</div>
+	</main>
+	<footer class="M-flex-V-fixed" data-name=".footer-container">footer</footer>
+</div>
+
+</body>
+</html>
