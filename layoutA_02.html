@@ -56,18 +56,45 @@
 		}
 
 		/* FLEX COLUMN BEHAVIOR */
-		.flex-V-container{
+		.flex-V-container,
+		.XS-flex-V-container,
+		.M-flex-V-container{
 			height: 100%;
 			display: flex;
 			flex-direction: column;
+			align-items: stretch;
 		}
-		.flex-V-scrolling{
+		.flex-V-scrolling,
+		.XS-flex-V-scrolling,
+		.M-flex-V-scrolling{
 			flex: 1 1 auto;
 			position: relative;
 			overflow-y: auto;
 		}
-		.flex-V-fixed{
+		.flex-V-fixed,
+		.XS-flex-V-fixed,
+		.M-flex-V-fixed{
 			flex: 0 0 auto;
+		}
+		.flex-V-auto,
+		.XS-flex-V-auto,
+		.M-flex-V-auto{
+			flex: 1 0 auto;
+			position: relative;
+		}
+
+		.flex-H-container,
+		.XS-flex-H-container,
+		.M-flex-H-container{
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: stretch;
+		}
+		.flex-H-fluid,
+		.XS-flex-H-fluid,
+		.M-flex-H-fluid{
+			flex: 1 1 auto;
 		}
 
 		/* COMMON */
@@ -119,24 +146,6 @@
 
 		/* responsive XS/S ONLY < 720px*/
 		@media (min-width: 0px) and (max-width: 719px) {
-		
-			.XS-flex-V-container{
-				height: 100%;
-				display: flex;
-				flex-direction: column;
-			}
-			.XS-flex-V-scrolling{
-				flex: 1 1 auto;
-				position: relative;
-				overflow-y: auto;
-			}
-			.XS-flex-V-auto{
-				flex: 1 0 auto;
-				position: relative;
-			}
-			.XS-flex-V-fixed{
-				flex: 0 0 auto;
-			}
 
 			body > div,
 			main,
@@ -181,33 +190,6 @@
 		/* responsive M/L/XL > 720px*/
 		@media (min-width: 720px) {
 
-			.M-flex-V-container{
-				height: 100%;
-				display: flex;
-				flex-direction: column;
-			}
-			.M-flex-V-scrolling{
-				flex: 1 1 auto;
-				position: relative;
-				overflow-y: auto;
-			}
-			.M-flex-V-auto{
-				flex: 1 0 auto;
-				position: relative;
-			}
-			.M-flex-V-fixed{
-				flex: 0 0 auto;
-			}
-
-			.M-flex-H-container{
-				width: 100%;
-				display: flex;
-				flex-direction: row;
-			}
-			.M-flex-H-fluid{
-				flex: 1 1 auto;
-			}
-
 			header{
 				min-height: 12rem;
 			}
@@ -224,6 +206,7 @@
 				min-height: 20rem;
 			}
 			.arbreQ-form{
+				min-height: auto;
 			}
 			.form-inner{
 				max-width: 50rem;
@@ -242,7 +225,7 @@
 
 <div class="M-flex-V-container" data-name=".annuaire-container">
 	<header class="M-flex-V-fixed" data-name=".header-container">
-		<h1>header <span>08</span></h1>
+		<h1>header <span>09</span></h1>
 	</header>
 	<main class="M-flex-V-scrolling" data-name=".annuaire-content-container">
 		<div class="wrapper M-flex-H-container" data-name=".annuaire-article-container">
