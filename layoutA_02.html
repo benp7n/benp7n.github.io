@@ -8,7 +8,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style type="text/css">
-
 		/* colors */
 		:root{
 			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
@@ -17,15 +16,12 @@
 			--color-dark-grey: #444;
 			--color-light-grey: #ccc;
 			--color-white: #fff;
-
 			--resolution-XS: 320px;
 			--resolution-S: 480px;
 			--resolution-M: 720px;
 			--resolution-L: 970px;
 			--resolution-XL: 1400px;
 		}
-
-
 		/* general */
 		html{
 			font-size:62.5%;
@@ -36,11 +32,9 @@
 			font-size:1.4rem;
 			line-height:1.5;
 		}
-
 		.hidden{
 			display: none;
 		}
-
 		/* reset */
 		*,
 		:after,
@@ -54,56 +48,27 @@
 		:before{
 			font-family: 'Roboto';
 		}
-
 		/* FLEX COLUMN BEHAVIOR */
-		.flex-V-container,
-		.XS-flex-V-container,
-		.M-flex-V-container{
+		.flex-V-container{
 			height: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
 		}
-		.flex-V-scrolling,
-		.XS-flex-V-scrolling,
-		.M-flex-V-scrolling{
+		.flex-V-scrolling{
 			flex: 1 1 auto;
 			position: relative;
 			overflow-y: auto;
 		}
-		.flex-V-fixed,
-		.XS-flex-V-fixed,
-		.M-flex-V-fixed{
+		.flex-V-fixed{
 			flex: 0 0 auto;
 		}
-		.flex-V-auto,
-		.XS-flex-V-auto,
-		.M-flex-V-auto{
-			flex: 1 0 auto;
-			position: relative;
-		}
-
-		.flex-H-container,
-		.XS-flex-H-container,
-		.M-flex-H-container{
-			width: 100%;
-			display: flex;
-			flex-direction: row;
-			align-items: stretch;
-		}
-		.flex-H-fluid,
-		.XS-flex-H-fluid,
-		.M-flex-H-fluid{
-			flex: 1 1 auto;
-		}
-
 		/* COMMON */
 		html,
 		body{
 			height: 100%;
 			overflow: hidden;
 		}
-
 		header{
 			padding: 1rem;
 			background-color: lightblue;
@@ -112,55 +77,63 @@
 			font-size: 1rem;
 			font-weight: normal;
 		}
-
 		.arbreQ-banner{
 			background-color: teal;
 		}
 		.arbreQ-form{
 			background-color: mediumaquamarine;
 		}
-
 		.carte{
 			background-color: papayawhip;
 		}
-
 		h2,
 		.group-input,
 		button{
 			margin: 1rem;
 		}
-
 		input:not(:checked) + label + p{
 			display: none;
 		}
-
 		input:checked + label + p{
 			display: block;
 		}
-
 		footer{
 			padding: 1rem;
 			background-color: lightblue;
 		}
-
-
 		/* responsive XS/S ONLY < 720px*/
 		@media (min-width: 0px) and (max-width: 719px) {
-
+		
+			.XS-flex-V-container{
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+			}
+			.XS-flex-V-scrolling{
+				flex: 1 1 auto;
+				position: relative;
+				overflow-y: auto;
+			}
+			.XS-flex-V-auto{
+				flex: 1 0 auto;
+				position: relative;
+			}
+			.XS-flex-V-fixed{
+				flex: 0 0 auto;
+			}
 			body > div,
 			main,
 			.wrapper{
 				height: 100%;
 				width: 100%;
 			}
-
 			header{
 				position: absolute;
 				z-index: 800;
 				width: 100%;
 				background: none;
 			}
-
 			.wrapper{
 			}
 			.arbreQ-container{
@@ -168,7 +141,6 @@
 				position: relative;
 				align-items: stretch;
 			}
-
 			.arbreQ-banner{
 				min-height: 33vh;
 			}
@@ -179,21 +151,43 @@
 			.form-inner{
 				width: 100%;
 			}
-
 			.carte,
 			footer{
 				display: none;
 			}
-
 		}
-
 		/* responsive M/L/XL > 720px*/
 		@media (min-width: 720px) {
-
+			.M-flex-V-container{
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+			}
+			.M-flex-V-scrolling{
+				flex: 1 1 auto;
+				position: relative;
+				overflow-y: auto;
+			}
+			.M-flex-V-auto{
+				flex: 1 0 auto;
+				position: relative;
+			}
+			.M-flex-V-fixed{
+				flex: 0 0 auto;
+			}
+			.M-flex-H-container{
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				align-items: stretch;
+			}
+			.M-flex-H-fluid{
+				flex: 1 1 auto;
+			}
 			header{
 				min-height: 12rem;
 			}
-
 			.wrapper{
 				height: 100%;
 			}
@@ -206,7 +200,7 @@
 				min-height: 20rem;
 			}
 			.arbreQ-form{
-				min-height: auto;
+				min-height: 100%;
 			}
 			.form-inner{
 				max-width: 50rem;
@@ -218,14 +212,13 @@
 			footer{
 			}
 		}
-
 	</style>
 </head>
 <body>
 
 <div class="M-flex-V-container" data-name=".annuaire-container">
 	<header class="M-flex-V-fixed" data-name=".header-container">
-		<h1>header <span>09</span></h1>
+		<h1>header <span>10</span></h1>
 	</header>
 	<main class="M-flex-V-scrolling" data-name=".annuaire-content-container">
 		<div class="wrapper M-flex-H-container" data-name=".annuaire-article-container">
