@@ -171,10 +171,6 @@
 				width: 100%;
 			}
 
-/*			.group-input{
-				display: flex;
-				flex-direction: column;
-			}*/
 			.carte,
 			footer{
 				display: none;
@@ -185,7 +181,6 @@
 		/* responsive M/L/XL > 720px*/
 		@media (min-width: 720px) {
 
-
 			.M-flex-V-container{
 				height: 100%;
 				display: flex;
@@ -195,6 +190,10 @@
 				flex: 1 1 auto;
 				position: relative;
 				overflow-y: auto;
+			}
+			.M-flex-V-auto{
+				flex: 1 0 auto;
+				position: relative;
 			}
 			.M-flex-V-fixed{
 				flex: 0 0 auto;
@@ -227,6 +226,8 @@
 			.arbreQ-form{
 			}
 			.form-inner{
+				max-width: 50rem;
+				margin: auto;
 			}
 			.carte{
 				flex: 1 1 auto;
@@ -241,7 +242,7 @@
 
 <div class="M-flex-V-container" data-name=".annuaire-container">
 	<header class="M-flex-V-fixed" data-name=".header-container">
-		<h1>header <span>07</span></h1>
+		<h1>header <span>08</span></h1>
 	</header>
 	<main class="M-flex-V-scrolling" data-name=".annuaire-content-container">
 		<div class="wrapper M-flex-H-container" data-name=".annuaire-article-container">
