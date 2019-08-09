@@ -102,6 +102,12 @@
 		button{
 			margin: 1rem;
 		}
+		input:not(:checked) + label + p{
+			display: none;
+		}
+		input:checked + label + p{
+			display: block;
+		}
 
 		footer{
 			padding: 1rem;
@@ -161,11 +167,6 @@
 				flex-wrap: wrap;
 				justify-content: center;
 				max-width: 500px;
-			}
-
-			.group-input{
-				display: flex;
-				flex-direction: column;
 			}
 			.carte,
 			footer{
@@ -252,7 +253,7 @@
 
 <div class="XS-flex-V-container M-flex-V-container" data-name=".annuaire-container">
 	<header class="M-flex-V-fixed" data-name=".header-container">
-		<h1>header <span>01</span></h1>
+		<h1>header <span>01 - accueil actuelle</span></h1>
 	</header>
 	<main class="XS-flex-V-container XS-flex-V-scrolling M-flex-V-scrolling M-flex-V-container" data-name=".annuaire-content-container">
 		<div class="wrapper XS-flex-V-scrolling" data-name=".annuaire-article-container">
@@ -262,22 +263,14 @@
 					<div class="form-inner" data-name="">
 						<h2>form</h2>
 						<div class="group-input">
-							<label for="select01">Option 01</label>
-							<select id="select01">
-								<option value="option01">choix 1</option>
-								<option value="option02">choix 2</option>
-								<option value="option03">choix 3</option>
-								<option value="option04">choix 4</option>
-							</select>
+							<input id="input01" type="checkbox" />
+							<label for="input01">Option 01</label>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 						<div class="group-input">
-							<label for="select02">Option 02</label>
-							<select id="select02">
-								<option value="option01">choix 1</option>
-								<option value="option02">choix 2</option>
-								<option value="option03">choix 3</option>
-								<option value="option04">choix 4</option>
-							</select>
+							<input id="input02" type="checkbox" />
+							<label for="input02">Option 02</label>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 						<button>Go</button>
 					</div>
