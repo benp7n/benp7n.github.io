@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>Layout Accueil 02</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+	<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+	<style type="text/css">
+		/* colors */
+		:root{
+			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
+			--color-ocean-blue: #006eab;
+			--color-black: #000;
+			--color-dark-grey: #444;
+			--color-light-grey: #ccc;
+			--color-white: #fff;
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
+
+			--color-selected: #2f3964;
+			--color-unselected: #d0d7db;
+		}
+		/* general */
+		html{
+			font-size:62.5%;
+			box-sizing:border-box;
+			font-family: 'Roboto', sans-serif;
+		}
+		body{
+			font-size:1.4rem;
+			line-height:1.5;
+		}
+		.hidden{
+			display: none;
+		}
+		/* reset */
+		*,
+		:after,
+		:before{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		* ~ *:not(.material-icons),
+		:after,
+		:before{
+			font-family: 'Roboto';
+		}
+
+		ul,
+		li{
+			list-style-type: none;
+		}
+
+		/* SPECIFIC */
+		input{
+			position: absolute;
+			left: -9999px;
+		}
+
+		body{
+			display: flex;
+			flex-direction: row;
+		}
+
+		ul{
+			min-width: 32rem;
+		}
+
+		li{
+			margin: 0.5rem;
+			/*min-width: 100%; */
+		}
+
+		label{
+			display: block;
+			line-height: 2rem;
+			padding: 0.5rem;
+			border-radius: 0.4rem;
+			border: 3px solid var(--color-white);
+
+			background-color: var(--color-unselected);
+			color: var(--color-selected);
+		}
+
+		label:hover,
+		input[id="ChalonsEnChampagne"]:checked ~ ul label[for="ChalonsEnChampagne"],
+		input[id="CharlevilleMezieres"]:checked ~ ul label[for="CharlevilleMezieres"],
+		input[id="Epinal"]:checked ~ ul label[for="Epinal"],
+		input[id="Metz"]:checked ~ ul label[for="Metz"],
+		input[id="Mulhouse"]:checked ~ ul label[for="Mulhouse"],
+		input[id="Nancy"]:checked ~ ul label[for="Nancy"],
+		input[id="SaintDizieBarLeDuc"]:checked ~ ul label[for="SaintDizieBarLeDuc"],
+		input[id="SaverneHaguenau"]:checked ~ ul label[for="SaverneHaguenau"],
+		input[id="Selestat"]:checked ~ ul label[for="Selestat"],
+		input[id="Strasbourg"]:checked ~ ul label[for="Strasbourg"],
+		input[id="ThionvilleLongwy"]:checked ~ ul label[for="_Thionville_Longwy"],
+		input[id="TroyesChaumont"]:checked ~ ul label[for="TroyesChaumont"]{
+			background-color: var(--color-selected);
+			color: var(--color-white);
+		}
+
+		label:hover{
+			border-color: var(--color-selected);
+			cursor: pointer;
+		}
+
+		#region_contour{
+			stroke: var(--color-selected);
+		}
+
+		/*affichage par défaut des territoires*/
+		svg path[id~="_Chalons-en-Champagne"],
+		svg path[id~="_Charleville-Mezieres_Verdun"],
+		svg path[id~="_Epinal"],
+		svg path[id~="_Metz"],
+		svg path[id~="_Mulhouse"],
+		svg path[id~="_Nancy"],
+		svg path[id~="_Saint-Dizier_Bar-Le-Duc"],
+		svg path[id~="_Saverne_Haguenau"],
+		svg path[id~="_Selestat"],
+		svg path[id~="_Strasbourg"],
+		svg path[id~="_Thionville_Longwy"],
+		svg path[id~="_Troyes_Chaumont"]{
+			fill: var(--color-unselected);
+			stroke: var(--color-white);
+			/*stroke: transparent;*/
+			stroke-width: 2px;
+		}
+
+		/*lorsque la checkbox est checked appliquer le css sur le path svg ayant le bon id*/
+		input[id="ChalonsEnChampagne"]:checked ~ svg path[id~="_Chalons-en-Champagne"],
+		input[id="CharlevilleMezieres"]:checked ~ svg path[id~="_Charleville-Mezieres_Verdun"],
+		input[id="Epinal"]:checked ~ svg path[id~="_Epinal"],
+		input[id="Metz"]:checked ~ svg path[id~="_Metz"],
+		input[id="Mulhouse"]:checked ~ svg path[id~="_Mulhouse"],
+		input[id="Nancy"]:checked ~ svg path[id~="_Nancy"],
+		input[id="SaintDizieBarLeDuc"]:checked ~ svg path[id~="_Saint-Dizier_Bar-Le-Duc"],
+		input[id="SaverneHaguenau"]:checked ~ svg path[id~="_Saverne_Haguenau"],
+		input[id="Selestat"]:checked ~ svg path[id~="_Selestat"],
+		input[id="Strasbourg"]:checked ~ svg path[id~="_Strasbourg"],
+		input[id="ThionvilleLongwy"]:checked ~ svg path[id~="_Thionville_Longwy"],
+		input[id="TroyesChaumont"]:checked ~ svg path[id~="_Troyes_Chaumont"]{
+			fill: var(--color-selected);
+/*			stroke: #fff;
+			stroke-width: 2px;*/
+		}
+	</style>
+</head>
+<body>
+
+<input type="checkbox" id="GrandEst" value="GrandEst" />
+<input type="checkbox" id="ChalonsEnChampagne" value="ChalonsEnChampagne" />
+<input type="checkbox" id="CharlevilleMezieres" value="CharlevilleMezieres" />
+<input type="checkbox" id="Epinal" value="Epinal" />
+<input type="checkbox" id="Metz" value="Metz" />
+<input type="checkbox" id="Mulhouse" value="Mulhouse" />
+<input type="checkbox" id="Nancy" value="Nancy" />
+<input type="checkbox" id="SaintDizieBarLeDuc" value="SaintDizieBarLeDuc" />
+<input type="checkbox" id="SaverneHaguenau" value="SaverneHaguenau" />
+<input type="checkbox" id="Selestat" value="Selestat" />
+<input type="checkbox" id="Strasbourg" value="Strasbourg" />
+<input type="checkbox" id="ThionvilleLongwy" value="ThionvilleLongwy" />
+<input type="checkbox" id="TroyesChaumont" value="TroyesChaumont" />
+
+<ul>
+	<li>
+		<label for="GrandEst">Tout Grand Est</label>
+	</li>
+	<li>
+		<label for="ChalonsEnChampagne">Châlons-en-Champagne</label>
+	</li>
+	<li>
+		<label for="CharlevilleMezieres">Charleville-Mézières / Verdun</label>
+	</li>
+	<li>
+		<label for="Epinal">Épinal</label>
+	</li>
+	<li>
+		<label for="Metz">Metz</label>
+	</li>
+	<li>
+		<label for="Mulhouse">Mulhouse</label>
+	</li>
+	<li>
+		<label for="Nancy">Nancy</label>
+	</li>
+	<li>
+		<label for="SaintDizieBarLeDuc">Saint-Dizier / Bar-Le-Duc</label>
+	</li>
+	<li>
+		<label for="SaverneHaguenau">Saverne / Haguenau</label>
+	</li>
+	<li>
+		<label for="Selestat">Sélestat</label>
+	</li>
+	<li>
+		<label for="Strasbourg">Strasbourg</label>
+	</li>
+	<li>
+		<label for="ThionvilleLongwy">Thionville / Longwy</label>
+	</li>
+	<li>
+		<label for="TroyesChaumont">Troyes / Chaumont</label>
+	</li>
+</ul>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150" viewBox="0 0 150 150">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="150" height="150" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="ico_territoire" clip-path="url(#clip-path)">
+    <rect id="Rectangle_1890" data-name="Rectangle 1890" width="150" height="150" fill="none"/>
+    <path id="_Mulhouse" d="M-20798.953-21538.768c1.785.148.67,3.795,3.273,1.785s.967,1.635,2.529-.447,1.264.967,1.859,1.711,1.859-.074,1.637,2.307,1.859,2.156,3.273,1.785,4.018-1.338,3.125,2.01-1.266,4.982,0,6.1.746,1.859-1.189,3.795.146,2.828-2.754,3.943-5.951,1.189-5.951,0a5.745,5.745,0,0,0-1.711-3.5c-.521-.225-.045-.99-1.117-2.158s-3.422-.371-2.008-2.529,1.414-4.02-.967-4.465-3.943-1.561-2.232-3.645.371-4.687.967-5.357S-20798.953-21538.768-20798.953-21538.768Z" transform="translate(20910 21649)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Selestat" d="M-18858.475-22193.971c-.287.959.672,3.066,1.629,2.779s1.533-1.055,2.012-1.15a1.315,1.315,0,0,1,1.244.479c.383.385,1.629.287,1.342-.479s.672,1.533,1.438,2.107,1.531.861,1.244,2.2.1,1.438,1.725,1.438a22.22,22.22,0,0,0,3.641,0c.67-.191.941-.666,1.492-1.816s.039-2.494.711-2.781.574-1.918,0-2.779a4.547,4.547,0,0,1-.479-3.449c.287-1.34,1.15-2.777,1.629-4.215s1.533-1.82,1.533-3.736,1.436,0,1.34-1.916-.576-2.684,0-3.641-1.666-.707-1.857-1.857-1.533.8-1.918-.35.9-2.2.328-2.678-2.494-1.723-2.109-2.3-1.146-.957-1.531-1.725,1.055-2.971-1.725-1.629.764,1.725-2.779,1.629c-2.41-.064-1.008,1.8-2.324,3.383s-3.326.531-2.943,2.926-2.164,5.527-.918,5.91,4,.1,1.992,2.779-2.607,3.777-2.512,4.928.768,2.205-.574,3.354A3.968,3.968,0,0,0-18858.475-22193.971Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Saverne_Haguenau" data-name="_Saverne / Haguenau" d="M-18863.658-22223.576c.68.6,1.887,1.963.529,2.113s-1.432,1.66,0,1.961,2.035-.379,3.393.678,2.865,1.66,3.318,2.791,2.867,1.057,3.621,0,2.037-.377,1.961-1.961,1.732-2.111,2.639-1.961,1.131-1.281,2.188-1.508,2.566-1.885,3.018-1.207a1.991,1.991,0,0,0,2.188.754,3.956,3.956,0,0,1,2.715.453c.678.451,2.188-.377,3.7.377s1.811-1.207,1.961-1.584a4.349,4.349,0,0,1,1.961-2.264,5.97,5.97,0,0,0,2.188-2.338c.527-.754,1.734-4.146,2.262-4.75s2.941-1.51,0-1.887-4.449-.98-5.053-1.584-.451-1.734-3.318-1.131-2.084-.885-5.463-.342-2.609-2.148-4.645-3.807-1.885-.678-4.6.453-3.469.3-3.7.527.227.83,0,1.811-1.734,1.281-1.357,1.885-1.432-1.283-2.715.6-2.643,3.018-2.49,4.148-.529,1.359-1.584,2.414-1.508,1.133-2.715,2.188A2.111,2.111,0,0,0-18863.658-22223.576Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Strasbourg" d="M-18843.564-22218.432c.309.48,2.092,1.684,1.887,2.781s-.584,3.123,1.064,2.814,1.2.275,1.512.824,2.162.105,2.059-1.27,1.2-1.168,1.133-3.434.309-2.4.893-2.953.857-2.437-.893-1.785-2.5.412-3.191-.617-1.887,1.064-2.986-.377-2.094.2-2.678.994S-18843.873-22218.912-18843.564-22218.432Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Epinal" d="M-18858.713-22213.518c-3.125,3.436-6.354,3.822-7.883,3.059s-1.148-4.461-3.314-2.039-1.02,2.293-4.078,2.039-2.934-1.148-5.1,0-1.654,1.656-4.332,2.422-3.568-.254-4.461-1.783,1.783-4.336-.766-4.08-3.186,1.785-5.48,2.168-2.168,1.654-4.207,1.273-4.971,1.273-2.166,2.422,2.166,4.461,3.951,3.441,3.824.893,3.441,2.8-2.676,3.7,0,6.627,3.188,5.609,5.227,4.08,3.568-3.824,5.48-2.932.383,2.549,3.951,2.166,5.354.129,5.99,2.168,2.8.127,3.314-1.4,1.656,1.275,4.078,3.441,3.441,2.674,4.078-.639.383-3.7,1.912-5.734a15.226,15.226,0,0,0,3.314-7.775c.637-3.951,5.1-3.568.893-5.48s-.254-4.207,0-5.227S-18855.588-22216.953-18858.713-22213.518Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Nancy" d="M-18866.852-22221.42a17.515,17.515,0,0,1-3.822-2.8c-.893-.891-1.277-1.146-3.061-1.146s-3.441.512-3.441-2.166,2.041-3.951-.764-3.951a10.21,10.21,0,0,1-5.609-1.912c-1.146-.637-2.676-1.912-2.676.637s-.256,4.207-2.422,4.207-2.168,2.293-2.932,3.186-1.912,1.912-.893,3.951,1.912,2.293,0,3.568,1.02,2.422.893,3.441,2.166-1.4,2.932,1.02-.637,2.932,1.02,4.207,4.588.893,5.354,0,3.57-1.4,4.334-.766,3.7,1.146,4.971,0,3.7-.764,3.7-2.293,1.783.766,2.422,1.529,4.078,2.93,4.844.764a5.434,5.434,0,0,1,3.7-3.441c1.4-.51,4.078-1.146,2.166-3.186s-3.568-2.932-5.863-3.059-2.934-.383-3.314-.893A4,4,0,0,0-18866.852-22221.42Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Metz" d="M-18858.5-22242.811a7.027,7.027,0,0,0-3.039-.785c-.785-.1-.59.393-.687,1.373s-.783,1.275-1.764.883-1.473.49-1.766-1.471-.586-1.766-1.273-2.746-3.236-2.744-3.139-.783.2.586-1.861.783a15.622,15.622,0,0,0-3.922.883c-1.373.393-1.373,1.666-2.256,2.451s-1.176.49-2.549,0a3.857,3.857,0,0,0-3.727.49c-1.078.785-.588.785-1.471,1.863s-.295.783-2.059.588-2.256,1.57-1.863,2.844.783,1.959,0,3.137-3.625,1.371-2.842,3.039.781,3.629,1.371,3.629a3.489,3.489,0,0,0,2.256-1.668c.785-1.078,2.744.295,3.137-1.568s-2.354-4.314,0-4.314,2.746,1.471,5.2,1.863,3.627-1.178,3.529,2.451-.59,3.725,2.156,4.412,4.9.395,5.59,2.158,3.527,2.352,4.215,2.156,2.844-.1,1.961-2.156-.687-3.924,1.078-4.021,2.551-1.961,2.746-2.941a7.226,7.226,0,0,1,1.863-3.922c1.176-.98,1.959-3.725,2.744-2.254s.98-.586,1.471-1.666-.49-3.432-1.471-2.746-2.449.785-2.744-.49S-18858.5-22242.811-18858.5-22242.811Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Thionville_Longwy" data-name="_Thionville / Longwy" d="M-18876.539-22254.943c-3.186-1.273-4.078-2.549-4.971-.637s-.637,2.039-2.422,2.039-1.912-.129-2.932-1.4-.256.256-2.295-.637,0-2.676-3.059-2.166-3.441-.893-3.951.637-2.164,1.02-3.312,1.529-.381-.256,0,2.039.637,2.3,2.549,1.658,3.7-.51,4.078,2.932-1.146,1.527,0,4.842-.766,4.846,2.676,4.973,4.336,1.785,4.59-1.4,2.549-2.168,4.078-1.275,2.549.508,4.078-2.295,3.951-1.273,5.354-1.273,3.7.129,3.059-3.568-.893-2.934-3.059-4.59A6.753,6.753,0,0,0-18876.539-22254.943Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Saint-Dizier_Bar-Le-Duc" data-name="_Saint-Dizier / Bar-Le-Duc" d="M-18897.922-22236.148c-1.471-.49-1.08-.687-2.844.98s-1.766,2.842-4.02,1.471-1.959-.1-2.254-3.234-2.061-.2-4.707,0,2.646,3.139,0,4.314-2.352-.1-5.1.783-2.453-.982-5.2,2.156-.488-1.666-4.8,2.648-5.469,2.361-4,7.166,3.566,4.6,5.43,4.107c1.25-.328,1.35-1.48,3.1,0,.518.41-.268,2.51.938,4.863s2.119,1.906,3.883,4.553c.9,1.352,3.205,1.215,5.746-.2,1.012-.562,1.371-.25,2.844-.783.752-.277,1.777-1.494,2.477-1.428,2.658.256,1.152,2.334,2.5,1.918s3.5-3.334,3.75-3.529a4.636,4.636,0,0,1,2.254-1.275c1.514-.521,4.217-.395,4.9-1.078,1.178-1.176,2.256-3.234.785-4.51s.588-1.473.588-3.236a9.588,9.588,0,0,0-.588-3.725c-.49-1.668-.49-2.256.588-3.236s0-2.256,0-3.922-.1-.59,1.176-2.354.98-3.037,0-3.725-.1-1.666-1.764.49-.881,2.648-2.549,2.354A7.6,7.6,0,0,1-18897.922-22236.148Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Troyes_Chaumont" data-name="_Troyes / Chaumont" d="M-18918.641-22207.967c-2.549-2.678-3.947-2.07-3.947-3.982s2.318-4.854-1.889-3.707-4.742.15-6.145-1.889-.633-1.963-.379-3.365-.6-2.055-3.02-1.545-3.463.016-4.738,1.545-3.547,3.059-5.078,1.529-.51-2.676,0-3.951.127-4.334-1.785-4.207-.385,2.166-3.7,2.166-3.186.51-4.715,0-2.652-2.59-1,1.615c.332.842-.639,3.148-.172,3.809.953,1.4,3.18-.32,1.752,1.82a20.212,20.212,0,0,0-2.4,3.5c-.621,1.508-.924,4.406-.365,5.76.893,2.166,1.494-2.537,2.77.521s3.586,4.563,2.566,6.092c-.33.494-.258,1.643,1.449,2.766.5.324,1.658-1.014,2.369-.309,1.291,1.281,2.4,5.053,2.463,5.143,2.676,4.205,2.039,4.715,6.373,3.7s11.76.492,12.652-1.8,1.5-2.787,4.938-1.895,5.607,4.715,6.5,7.137-.758,5.354,1.918,6.5,7.8,5.273,9.2,3.361,1.885-3.234,3.668-3.361,4.791,1.85,5.43-.826-2.115-2.23.434-4.016,3.568-2.3,4.078-3.061.846-.324-1.32-3.256-2.441-2.375-3.844-4.67.576-3.674,1.086-5.457-.477-.9-3.662-1.924-.344-4.32-3.912-3.3-2.654-1.838-5.459-.818c0,0-2.791,1.385-2.951,1.441a27.457,27.457,0,0,1-4.7,1.236C-18916.217-22205.158-18918.641-22207.967-18918.641-22207.967Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Chalons-en-Champagne" d="M-18946.857-22248.932c-2.412.6-4.9-.9-2.412,3.168s3.771,5.43,0,4.9-.83,1.66-1.057,2.791-1.205,1.432,1.057,2.111-1.207,2.186-2.641,3.7-2.641,3.17-2.564,4.6-2.414,2.037.527,2.338,3.773.225,4.678-.3,3.393.229,3.016-1.055,1.811-.98,2.188.527.68,3.242,0,4.449-.9,2.113.377,2.414,3.168.227,3.922-.754.379-1.812,2.791-1.66,1.434-.68,3.092-.754,3.168-.6,3.545-1.207,1.885-.83,2.488-1.961a11.762,11.762,0,0,1,1.508-2.035c.83-1.131,1.811-1.887,3.018-1.66s1.885.076,2.111-1.131,1.584-1.885,2.338-.9,2.412.152,3.318,0,3.621-.982,3.621-1.51a3.922,3.922,0,0,1,0-1.658c.227-.98.377-2.264-.6-1.811s-1.283.227-.83-1.734-.6-1.887-.754-3.168a3.2,3.2,0,0,1,.754-2.488c.453-.754.906-.6-.754-1.508s-2.791-.756-2.941.451.15.15-1.811,0-2.789-.453-3.393,0-1.885-.453-1.811-1.584,1.432-1.207-1.057-.754-3.617.98-4.373,0,1.129-1.133-1.887-1.811-.623-.461-2.584-1.668-2.914-1.2-4.219-.8-.145,2.857-1.8,1.953a5.218,5.218,0,0,1-2.1-1.6c-.754-.754-1.65-1.658-1.8,0s.594,1.959-.764,1.734A3.058,3.058,0,0,0-18946.857-22248.932Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="_Charleville-Mezieres_Verdun" data-name="_Charleville-Mézières / Verdun" d="M-18923.189-22276.482c-3.441-.766-.764,2.166-4.205,2.039s-6.5-2.676-6.373,0,1.02,2.932,0,5.863,1.018,3.566-2.295,5.734-1.912,2.807-2.549,7.521-.639,3.311,2.549,3.822,4.717,2.293,6.119,3.951,3.186,1.146,5.607.893.508,2.93,5.607,2.039,5.609-1.91,5.609,1.275-1.529,1.785,0,5.354,4.844-.891,5.863.893-.383,3.313,2.549,3.186,3.061-2.422,5.736-2.039,6.627,1.275,7.01,0,2.168-1.4,0-4.334-.766-5.355-.766-7.266-.129-2.678-1.4-3.951-1.146-1.783-3.186-1.146-1.912.895-2.932-2.676,1.529-2.3-2.039-5.1-.637-3.312-4.971-3.822-.768-2.678-4.59-3.314-5.354,1.275-5.1-3.951-2.674-.766-.764-6.373,4.844-4.906.764-5.416-2.807,1.314-4.209,4.117S-18919.748-22275.717-18923.189-22276.482Z" transform="translate(18970 22304)" fill="rgba(51,51,51,0.6)" stroke="#333" stroke-width="2"/>
+    <path id="region_contour" d="M-20856.137-21627.352c.691,1.686-3.248,5.082-1.287,7.533s.885,3.824.688,5,.883,2.256,3.432,1.961,3.432,2.059,4.117,3.432,5.293.393,5.2,1.471,3.334,2.939,3.334,4.117-.1,4.117,1.471,2.941,2.842.588,4.51-1.078,4.215.686,4.51,1.078,3.824,1.57,3.824,1.08,2.943,1.57,4.217,0a3.35,3.35,0,0,1,4.9,0c1.176,1.273,3.039-.687,4.607.783s3.334,3.432,3.432,5.393,3.822,4.316,3.529,5.2.686,1.961,1.568,2.059,2.646-.588,1.863-2.059,4.707-.393,4.707,1.078,2.057,2.352,3.234,2.254,4.412.1,5.295-.686a2.976,2.976,0,0,1,4.607,1.176c.98,2.451,4.215,2.648,6.471,2.746s6.766.1,8.629,2.156,7.453-.588,2.844,3.824-.588,3.92-4.8,7.059-5.49,5.885-5.393,8.629-1.473,4.51-1.275,6.568-2.646,3.332-2.646,5.49-3.727,6.766-1.961,9.8-1.275,9.021-1.275,11.08,3.234,4.707-.588,8.334c-3.168,3.006-5.609,5.6-8.586,3.8-.293-.17.5-1.705-.238-2.326-.844-.709-.289-.859-1.387-1.967-.711-.711-3.059-2.389-3.365-3.424a5.5,5.5,0,0,1,.986-4.414,45.956,45.956,0,0,1-6.207-3.939c-1.617-1.137-.748.182-3.842-2.756s-4.85.072-6.186-.756a12.4,12.4,0,0,0-6.766-1.668c-2.451,0-.7-5.076-4.23-1.742s-7.437,4.291-8.025,5.762-2.057,3.236-1.764,5.688-2.355,1.373-4.119.98-4.41.59-4.705,2.354-2.939,1.762-5-.59-4.707-.781-6.178-2.352,1.865-4.215,1.178-5.393a27.69,27.69,0,0,0-5.492-5.295c-.783-.295-1.664-1.961-3.822-1.961s-3.434-.785-3.531,1.078-1.371,1.273-3.725,1.471-7.549,1.178-9.9.785-3.529,0-5.883-5.59-3.432-3.234-4.8-4.117-.2-3.822-1.176-5.588-3.43-1.668-5-4.314.98-5.687,2.451-7.158-.49-2.254-1.471-2.744,2.352-3.041.783-3.824-1.664-2.547.688-4.215-1.473-2.16,3.725-5.492-1.371-1.273-1.176-3.137,0-5.1,2.156-4.02,1.568-2.746,0-3.236-2.352-4.117.393-4.607,5.1-.785,5.1-1.863.688-1.471,2.746,0,2.451-2.061,2.451-5.393-1.373-3.625,2.059-7.744,3.332-4.414,2.549-8.139-1.174-3.824,2.648-3.432,4.609,1.373,7.941-.98c.957-.676,1.73-3.9,2.922-5.371C-20857.9-21629.377-20856.828-21629.037-20856.137-21627.352Z" transform="translate(20910 21649)" fill="none" stroke="#707070" stroke-width="1"/>
+  </g>
+</svg>
+
+<script type="text/javascript">
+const checkboxes = document.getElementsByTagName('input');
+const checkbox_GrandEst = checkboxes[0];
+
+for (var i=0; i<checkboxes.length; i++) {
+  if (checkboxes[i].type == 'checkbox') {
+    checkboxes[i].checked = false;
+  }
+}
+
+if (typeof checkbox_GrandEst !== 'undefined') {
+	checkbox_GrandEst.addEventListener('click', toutGrandEst);
+}
+
+function toutGrandEst(e){
+	let bool_GrandEst = e.target.checked;
+	for (var i=2; i<checkboxes.length; i++) {
+		if (checkboxes[i].type == 'checkbox') {
+			checkboxes[i].checked = bool_GrandEst;
+		}
+	}
+	// checkbox_GrandEst.checked = bool_GrandEst;
+}
+
+</script>
+
+</body>
+</html>
