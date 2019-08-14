@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>Layout Accueil 02</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+		/* colors */
+		:root{
+			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
+			--color-ocean-blue: #006eab;
+			--color-black: #000;
+			--color-dark-grey: #444;
+			--color-light-grey: #ccc;
+			--color-white: #fff;
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
+		}
+		/* general */
+		html{
+			font-size:62.5%;
+			box-sizing:border-box;
+			font-family: 'Roboto', sans-serif;
+		}
+		body{
+			font-size:1.4rem;
+			line-height:1.5;
+		}
+		.hidden{
+			display: none;
+		}
+		/* reset */
+		*,
+		:after,
+		:before{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		* ~ *:not(.material-icons),
+		:after,
+		:before{
+			font-family: 'Roboto';
+		}
+		/* specific */
+		html {
+		  background: gainsboro;
+		}
+
+		main {
+		  display: flex;
+		  flex-direction: row;
+		  flex-wrap: wrap;
+		  justify-content: space-around;
+		  width: 600px;
+		  margin: 0 auto;
+		  background: white;
+		}
+
+		.col01 {
+		  flex: 1;
+		  width: 200px;
+		  padding: 15px;
+		}
+		.col02 {
+		  flex: 2;
+		  width: 400px;
+		  padding: 15px;
+		}
+
+		.logo,
+		.links,
+		.text {
+		  display: block;
+		  padding: 15px;
+		}
+
+		.logo {
+		  background: gainsboro;
+		  margin-bottom: 15px;
+		}
+		.links {
+		  background: mediumblue;
+		  cursor: pointer;
+		}
+		.text {
+		  background: gainsboro;
+		  // height: 100%;
+		  height: calc(100% - 30px);
+		  max-width: 400px;
+		  margin: 0 auto;
+		}
+
+		.clicked .links {
+		  background: red;
+		}
+		.clicked .links:after {
+		  content: " isClicked";
+		}
+
+		.clicked {
+		  flex-basis: 100%; /* THIS IS THE TRICK */
+		  text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+
+<main>
+  <section class="col01">
+    <div class="logo">logo</div>
+    <div class="links">links</div>
+  </section>
+  <section class="col02">
+    <div class="text">text</div>
+  </section>
+</main>
+
+<script type="text/javascript">
+const links = document.getElementsByClassName('links')[0];
+
+let isClicked = false;
+
+links.addEventListener('click', toggleClass);
+
+function toggleClass(){
+  links.parentNode.classList.toggle('clicked', isClicked);
+  isClicked ? isClicked = false : isClicked = true;
+}
+</script>
+
+</body>
+</html>
