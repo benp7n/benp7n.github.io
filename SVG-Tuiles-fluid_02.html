@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>SVG Tuiles Fluid 02</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+		/* colors */
+		:root{
+			--color-ocean-blue-rgba: 0, 110, 171; /* #006eab */
+			--color-ocean-blue: #006eab;
+			--color-black: #000;
+			--color-dark-grey: #444;
+			--color-light-grey: #ccc;
+			--color-white: #fff;
+			--resolution-XS: 320px;
+			--resolution-S: 480px;
+			--resolution-M: 720px;
+			--resolution-L: 970px;
+			--resolution-XL: 1400px;
+		}
+		/* general */
+		html{
+			font-size:62.5%;
+			box-sizing:border-box;
+			font-family: 'Roboto', sans-serif;
+		}
+		body{
+			font-size:1.4rem;
+			line-height:1.5;
+		}
+		.hidden{
+			display: none;
+		}
+		/* reset */
+		*,
+		:after,
+		:before{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		* ~ *:not(.material-icons),
+		:after,
+		:before{
+			font-family: 'Roboto';
+		}
+		/* SPECIFIC */
+
+		.court{ display: inline-block; }
+		.long{ display: none; }
+
+		input:checked ~ .tuile .court{ display: none; }
+		input:checked ~ .tuile .long{ display: inline-block; }
+
+
+		.tuile{
+			width: 32rem;
+			display: flex;
+			justify-content: center;
+			min-height: 90px;
+			align-items: center;
+
+			position: relative;
+
+			background: papayawhip;
+		}
+
+		.text{
+		}
+
+		svg{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+		}
+
+	</style>
+</head>
+<body>
+
+<input type="checkbox" id="courtLong"/>
+<label for="courtLong">Court ou Long ?</label>
+
+<div class="tuile">
+
+	<div class="text">
+		<span class="court">Lorem ipsum dolor sit amet</span>
+		<span class="long">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+	</div>
+
+<!-- <a href="http://jsfiddle.net/defghi1977/f4uctq5b/" target="_blank">example jsfiddle</a>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<g id="source">
+			<rect width="200" height="100" fill="yellow"/>
+			<circle cx="50" cy="50" r="40" fill="red"/>
+			<rect x="50" y="10" width="100" height="80" fill="orange"/>
+			<path d="M150,10L190,50 150,90z" fill="pink"/>
+		</g>
+		<symbol id="left" viewBox="0 0 50 100" preserveAspectRatio="none">
+			<use xlink:href="#source"/>
+		</symbol>
+		<symbol id="middle" viewBox="50 0 100 100" preserveAspectRatio="none">
+			<use xlink:href="#source"/>
+		</symbol>
+		<symbol id="right" viewBox="150 0 50 100" preserveAspectRatio="none">
+			<use xlink:href="#source"/>
+		</symbol>
+	</defs>
+	<svg viewBox="0 0 1 1" preserveAspectRatio="none">
+		<use xlink:href="#middle" width="1" height="1"/>
+	</svg>
+	<svg viewBox="0 0 1 2" preserveAspectRatio="xMinYMid">
+		<use xlink:href="#left" width="1" height="2"/>
+	</svg>
+	<svg viewBox="0 0 1 2" preserveAspectRatio="xMaxYMid">
+		<use xlink:href="#right" width="1" height="2"/>
+	</svg>
+</svg> -->
+
+	<!-- <svg xmlns="http://www.w3.org/2000/svg" width="320" height="89.81" viewBox="0 0 320 89.81"> -->
+	<svg xmlns="http://www.w3.org/2000/svg">
+		<defs>
+			<g id="tuile">
+				<rect width="320" height="89.81" fill="mediumaquamarine"/>
+				<path class="trace" d="M318.7,89.81H13a1.3,1.3,0,0,1-1.3-1.29V47.46H1.3a1.28,1.28,0,0,1-.94-2.18L43.52.4a1.3,1.3,0,0,1,1.86,0L58.09,13H318.7a1.3,1.3,0,0,1,1.3,1.29V88.52A1.3,1.3,0,0,1,318.7,89.81ZM14.28,87.22H317.4V15.61H57.55a1.34,1.34,0,0,1-.92-.38L44.48,3.14,4.34,44.88H13a1.3,1.3,0,0,1,1.3,1.29Z"/>
+			</g>
+
+			<symbol id="top" viewBox="0 0 320 50" preserveAspectRatio="none">
+				<use xlink:href="#tuile"/>
+			</symbol>
+			<symbol id="middle" viewBox="0 50 320 20" preserveAspectRatio="none">
+				<use xlink:href="#tuile"/>
+			</symbol>
+			<symbol id="bottom" viewBox="0 70 320 10" preserveAspectRatio="none">
+				<use xlink:href="#tuile"/>
+			</symbol>
+		</defs>
+
+		<svg viewBox="0 0 1 1" preserveAspectRatio="none">
+			<use xlink:href="#middle" width="1" height="1" fill="yellow"/>
+		</svg>
+		<svg viewBox="0 0 10 1" preserveAspectRatio="xMidYMin" >
+			<use xlink:href="#top" width="10" height="1" fill="red"/>
+		</svg>
+		<svg viewBox="0 0 1 1" preserveAspectRatio="xMidYMax">
+			<use xlink:href="#bottom" width="1" height="1" fill="pink"/>
+		</svg>
+	</svg>
+
+
+</div>
+
+</body>
+</html>
