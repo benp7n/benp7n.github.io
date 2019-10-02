@@ -52,6 +52,17 @@
 			display: none;
 		}
 
+		/* Visually hide any element (mostly text) accessibly. Support includes IE9+ by Sara Souiedan */
+		.sr-only {
+			clip: rect(0000);
+			clip-path: inset(100%);
+			height: 1px;
+			overflow: hidden;
+			position: absolute;
+			white-space: nowrap;
+			width: 1px;
+		}
+
 		/* ****************************** */
 		/* RESET by Andy Bell 
 		/* https://dev.to/hankchizljaw/a-modern-css-reset-6p3
