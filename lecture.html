@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercices de lecture - CP</title>
+	<style type="text/css">
+		:root{
+			--colorWhite: #f5f5f5;
+			--colorGreyLight: #f0f0f0;
+			--colorGreyMidLight: #cccccc;
+			--colorGreyMedium: #999999;
+			--colorGreyMidDark: #444444;
+			--colorGreyDark: #222222;
+		}
+
+		html,
+		body{
+			width: 100%;
+			height: 100%;
+		}
+
+		html{
+			font-family: sans-serif;
+			font-size: 62.5%;
+			background: var(--colorGreyLight);
+			background: var(--colorGreyMidDark);
+			color: var(--colorGreyDark);
+		}
+
+		*,
+		:after,
+		:before{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		.hidden{
+			display: none !important;
+		}
+
+		body{
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			justify-content: center;
+			align-items: center;
+		}
+
+		button{
+			font-size: 3rem;
+			background: var(--colorGreyMidLight);
+			border: 0;
+			border-radius: 5px;
+			padding: 0;
+			margin: 0;
+			line-height: 1;
+			min-height: 4rem; 
+			box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+						0 2px 2px rgba(0,0,0,0.12), 
+						0 4px 4px rgba(0,0,0,0.12), 
+						0 8px 8px rgba(0,0,0,0.12),
+						0 16px 16px rgba(0,0,0,0.12);
+		}
+
+		button:active{
+			box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+			background: var(--colorGreyMedium);
+		}
+
+		#display{
+			width: 30rem;
+			height: 30rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			font-family: /* cursive, */ sans-serif;
+			font-size: 5rem;
+
+
+			margin: 1rem 0;
+			background: var(--colorGreyLight);
+		}
+
+		#display[data-fontfamily="cursive"]{ font-family: cursive; }
+		/* "Brush Script MT", "Brush Script Std", "Lucida Calligraphy", "Lucida Handwriting", "Apple Chancery", cursive */
+		#display[data-fontfamily="serif"]{ font-family: serif; }
+		#display[data-fontfamily="sans-serif"]{ font-family: sans-serif; }
+
+		#display[data-texttransform="lowercase"]{ text-transform: lowercase; }
+		#display[data-texttransform="capitalize"]{ text-transform: capitalize; }
+		#display[data-texttransform="uppercase"]{ text-transform: uppercase; }
+
+		#choices{
+			width: 30rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			list-style-type: none;
+		}
+
+		#choices li{
+			width: 100%;
+			margin-bottom: 1.5rem;
+		}
+
+		#choices button{
+			width: 100%;
+			padding: 0.5rem;
+		}
+
+		#options,
+		#actions{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			height: 4rem;
+			width: 30rem;
+		}
+
+		#options{
+			justify-content: flex-end;
+		}		
+		#actions{
+			justify-content: space-around;
+		}
+
+		#options button{
+			width: 4rem;
+			height: 4rem;
+			margin-left: 1rem;
+			font-size: 2rem;
+			background: var(--colorGreyDark);
+			color: var(--colorGreyLight);
+		}
+
+
+		#actions button{
+			flex: 1 0 auto;
+			max-width: 45%;
+			line-height: 1.35;
+		}
+	</style>
+</head>
+<body>
+
+	<aside id="options" class="hidden">
+		<button id="textTransform">Aa</button>
+		<button id="fontFamily" class="cursive">o|</button>
+	</aside>
+
+	<div id="display" class="hidden" tabindex="0"></div>
+
+	<ul id="choices" class="hidden">
+		<!-- <li><button id="test">Test</button></li> -->
+		<li><button id="motsOutils">Mots outils</button></li>
+		<li><button id="alphabet">Alphabet</button></li>
+		<li><button id="nombres20">Nombres 1 à 20</button></li>
+		<li><button id="nombres39">Nombres 1 à 39</button></li>
+	</ul>
+
+	<nav id="actions">
+		<button id="start">🚩</button>
+		<button id="nok" class="hidden">😕</button>
+		<button id="ok" class="hidden">😃</button>
+	</nav>
+
+<script type="text/javascript">
+// const dataInit = ["A", "B", "C", "D"];
+// const dataInit = ["il", "il y a", "elle", "une", "sans", "dans", "il est", "elle est", "avec", "sur", "mais", "des", "de"];
+// const dataInit = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+// const dataInit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20/*, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39*/];
+const dataSrc = {
+	"test" : ["A", "B", "C", "D"],
+	"motsOutils" : ["il", "il y a", "elle", "une", "sans", "dans", "il est", "elle est", "avec", "sur", "mais", "des", "de"],
+	"alphabet" : ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+	"nombres20" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+	"nombres39" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+}
+let dataInit = [];
+let dataShuffled = [];
+let dataDisplayed = [];
+let dataCurrentValue = [];
+
+const DOMactions = document.getElementById("actions");
+const DOMbtnSTART = document.getElementById("start");
+const DOMbtnOK = document.getElementById("ok");
+const DOMbtnNOK = document.getElementById("nok");
+const DOMdisplay = document.getElementById("display");
+const DOMchoices = document.getElementById("choices");
+const DOMoptions = document.getElementById("options");
+const DOMoptFontFamily = document.getElementById("fontFamily");
+const DOMoptTextTransform = document.getElementById("textTransform");
+
+// @FIX : not working when only 2 items in array
+function shuffleArray222 (anArray) {
+  for (let i = anArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i);
+    const temp = anArray[i];
+    anArray[i] = anArray[j];
+    anArray[j] = temp;
+  }
+  return anArray;
+}
+
+function shuffleArray (o) {
+	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	return o;
+};
+
+function isUniqueArray (anArray) {
+  const uniqueArray = [...new Set(anArray)];
+  return uniqueArray;
+}
+
+function displayNext () {
+  // console.log("displayNext")
+  console.log(`remain ${dataShuffled.length} ${dataShuffled} /// ${dataInit}`);
+  let valueToDisplay = dataShuffled.shift();
+  dataCurrentValue = valueToDisplay;
+  DOMdisplay.focus();
+  DOMdisplay.innerHTML = valueToDisplay;
+}
+
+// function toggleDisplay () {
+// 	DOMbtnOK.classList.toggle("hidden");
+// 	DOMbtnNOK.classList.toggle("hidden");
+// 	DOMbtnSTART.classList.toggle("hidden");
+// 	DOMdisplay.classList.toggle("hidden");
+// }
+
+// START
+DOMbtnSTART.addEventListener("click", function(){
+	DOMactions.classList.add("hidden");
+	DOMbtnSTART.classList.add("hidden");
+	DOMchoices.classList.remove("hidden");
+});
+
+// CHOICES
+Array.from(DOMchoices.querySelectorAll("button")).forEach( aChoiceBtn => {
+	aChoiceBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+		let choiceTarget = e.target.id;
+		// console.log(choiceTarget);
+		dataShuffled = [...dataSrc[choiceTarget]];
+		dataShuffled = shuffleArray(dataShuffled);
+		// toggleDisplay();
+		DOMactions.classList.remove("hidden");
+		DOMchoices.classList.add("hidden");
+		DOMbtnOK.classList.remove("hidden");
+		DOMbtnNOK.classList.remove("hidden");
+		DOMdisplay.classList.remove("hidden");
+		DOMoptions.classList.remove("hidden");
+		displayNext();
+	});
+});
+
+// START - OLD way managing only one array at a time
+// DOMbtnSTART.addEventListener("click", function(){
+// 	dataShuffled = [...dataInit];
+// 	dataShuffled = shuffleArray(dataShuffled);
+// 	// toggleDisplay();
+// 	DOMbtnSTART.classList.add("hidden");
+// 	DOMbtnOK.classList.remove("hidden");
+// 	DOMbtnNOK.classList.remove("hidden");
+// 	DOMdisplay.classList.remove("hidden");
+// 	displayNext();
+// });
+
+
+// OK
+DOMbtnOK.addEventListener("click", function(){
+  if ( dataShuffled.length > 0 ) {
+    displayNext();
+  } else {
+    console.log('stop');
+    // toggleDisplay();
+	DOMbtnOK.classList.add("hidden");
+	DOMbtnNOK.classList.add("hidden");
+	DOMdisplay.classList.add("hidden");
+    DOMbtnSTART.classList.remove("hidden");
+    DOMoptions.classList.add("hidden");
+  }
+});
+
+// NOK
+DOMbtnNOK.addEventListener("click", function(){
+	console.log(`NOK ${dataCurrentValue} // ${dataShuffled}`);
+	dataShuffled.push(dataCurrentValue);
+	dataShuffled = shuffleArray(dataShuffled);
+	console.log(`shuffleArray ${dataShuffled}`);
+	displayNext();
+});
+
+// FONT FAMILY
+DOMoptFontFamily.addEventListener("click", function(){
+	console.log("options :: font family");
+	let currentFontFamily = DOMdisplay.getAttribute("data-fontFamily");
+	let newFontFamily = "";
+	switch (currentFontFamily) {
+		case "cursive":
+			newFontFamily = "serif";
+			break;
+		case "serif":
+			newFontFamily = "sans-serif";
+			break;
+		case "sans-serif":
+			newFontFamily = "cursive";
+			break;
+		default:
+			newFontFamily = "cursive";
+	}
+  	DOMdisplay.focus();
+	return DOMdisplay.setAttribute("data-fontFamily", newFontFamily);
+});
+
+// TEXT TRANSFORM
+DOMoptTextTransform.addEventListener("click", function(){
+	console.log("options :: text transform");
+	let currentTextTransform = DOMdisplay.getAttribute("data-textTransform");
+	let newTextTransform = "";
+	switch (currentTextTransform) {
+		case "lowercase":
+			newTextTransform = "capitalize";
+			break;
+		case "capitalize":
+			newTextTransform = "uppercase";
+			break;
+		case "uppercase":
+			newTextTransform = "lowercase";
+			break;
+		default:
+			newTextTransform = "capitalize";
+	}
+  	DOMdisplay.focus();
+	return DOMdisplay.setAttribute("data-textTransform", newTextTransform);
+});
+
+</script>
+</body>
+</html>
