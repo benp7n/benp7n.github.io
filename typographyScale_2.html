@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		:root{
+
+			/* ON/OFF DEBUG */
+			--ON: initial;
+			--OFF: ;
+
+			/*  FONT SIZE  */
+			--font-size-XS: 0.750rem; /* 12px */
+			--font-size-S:  0.875rem; /* 14px */
+			--font-size-M:  1.000rem; /* 16px */
+			--font-size-L:  1.125rem; /* 18px */
+
+			--font-size-title5: 1.25rem; /* 20px */
+			--font-size-title4: 1.50rem; /* 24px */
+			--font-size-title3: 2.00rem; /* 32px */
+			--font-size-title2: 2.50rem; /* 40px */
+			--font-size-title1: 3.00rem; /* 48px */
+
+
+			/*  LINE HEIGHT  */
+			--font-lineheight-M: 1.5rem; /* 24px */
+			--font-lineheight-L: 2.0rem; /* 32px */
+
+			--font-lineheight-title5: 1.5rem; /* 24px */
+			--font-lineheight-title4: 2.0rem; /* 32px */
+			--font-lineheight-title3: 2.5rem; /* 40px */
+			--font-lineheight-title2: 3.0rem; /* 48px */
+			--font-lineheight-title1: 4.0rem; /* 64px */
+
+			/* FONT WEIGHT */
+			--font-weight-S: 200;
+			--font-weight-M: 400;
+			--font-weight-L: 800;
+
+			/*  MARGIN */
+			/*--margin-S: 1rem; /* 16px */
+			/*--margin-M: 1.5rem; /* 24px */
+			/*--margin-L: 2rem; /* 32px */
+			/*--margin-XL: 3rem; /* 48px */
+
+			--margin-S: 1rem;
+			--margin-M: 1rem;
+			--margin-L: 1rem;
+			--margin-XL: 1rem;
+
+			/* RATIO */
+			--ratio: 1;
+
+			/* LINE LENGTH */
+			--line-body-short : 50ch;
+			--line-body-long : 75ch;
+
+			--line-title : 32ch;
+		}
+
+		/* FIXED SIZE */
+		.fixed h1{
+			font-size: var(--font-size-title1);
+			line-height: var(--font-lineheight-title1);
+			font-weight: var(--font-weight-L);
+			margin-bottom: var(--margin-XL);
+		}
+
+		.fixed h2{
+			font-size: var(--font-size-title2);
+			line-height: var(--font-lineheight-title2);
+			font-weight: var(--font-weight-L);
+			margin-bottom: var(--margin-L);
+		}
+		
+		.fixed h3{
+			font-size: var(--font-size-title3);
+			line-height: var(--font-lineheight-title3);
+			font-weight: var(--font-weight-L);
+			margin-bottom: var(--margin-M);
+		}
+		
+		.fixed h4{
+			font-size: var(--font-size-title4);
+			line-height: var(--font-lineheight-title4);
+			font-weight: var(--font-weight-L);
+			margin-bottom: var(--margin-S);
+		}
+		
+		.fixed h5{
+			font-size: var(--font-size-title5);
+			line-height: var(--font-lineheight-title5);
+			font-weight: var(--font-weight-L);
+			margin-bottom: var(--margin-S);
+		}
+		
+		.fixed p{
+			font-size: var(--font-size-M);
+			line-height: var(--font-lineheight-M);
+			font-weight: var(--font-weight-M);
+			margin-bottom: var(--margin-S);
+		}
+		
+		.fixed .small{
+			font-size: var(--font-size-S);
+			line-height: var(--font-lineheight-M);
+			margin-bottom: var(--margin-S);
+		}
+		
+		.fixed .x-small{
+			font-size: var(--font-size-XS);
+			line-height: var(--font-lineheight-M);
+			margin-bottom: var(--margin-S);
+		}
+		
+		.fixed .large{
+			font-size: var(--font-size-L);
+			line-height: var(--font-lineheight-L);
+			margin-bottom: var(--margin-M);
+		}
+
+		/* RATIO */
+		.ratio h1{
+			font-size: calc(var(--font-size-title1) * var(--ratio));
+			line-height: calc(var(--font-lineheight-title1) * var(--ratio));
+			margin-bottom: calc(var(--margin-XL) * var(--ratio));
+		}
+
+		.ratio h2{
+			font-size: calc(var(--font-size-title2) * var(--ratio));
+			line-height: calc(var(--font-lineheight-title2) * var(--ratio));
+			margin-bottom: calc(var(--margin-L) * var(--ratio));
+		}
+
+		.ratio h3{
+			font-size: calc(var(--font-size-title3) * var(--ratio));
+			line-height: calc(var(--font-lineheight-title3) * var(--ratio));
+			margin-bottom: calc(var(--margin-L) * var(--ratio));
+		}
+
+		.ratio h4{
+			font-size: calc(var(--font-size-title4) * var(--ratio));
+			line-height: calc(var(--font-lineheight-title4) * var(--ratio));
+			margin-bottom: calc(var(--margin-L) * var(--ratio));
+		}
+
+		.ratio h5{
+			font-size: calc(var(--font-size-title5) * var(--ratio));
+			line-height: calc(var(--font-lineheight-title5) * var(--ratio));
+			margin-bottom: calc(var(--margin-L) * var(--ratio));
+		}
+		
+		.ratio p{
+			font-size: calc(var(--font-size) * var(--ratio));
+			line-height: calc(var(--font-lineheight-M) * var(--ratio));
+			margin-bottom: calc(var(--margin-S) * var(--ratio));
+		}
+
+		
+		.fixed p{
+			font-size: calc(var(--font-size-M) * var(--ratio));
+			line-height: calc(var(--font-lineheight-M) * var(--ratio));
+			margin-bottom: calc(var(--margin-S) * var(--ratio));
+		}
+		
+		.fixed .small{
+			font-size: calc(var(--font-size-S) * var(--ratio));
+			line-height: calc(var(--font-lineheight-M) * var(--ratio));
+			margin-bottom: calc(var(--margin-S) * var(--ratio));
+		}
+		
+		.fixed .x-small{
+			font-size: calc(var(--font-size-XS) * var(--ratio));
+			line-height: calc(var(--font-lineheight-M) * var(--ratio));
+			margin-bottom: calc(var(--margin-S) * var(--ratio));
+		}
+		
+		.fixed .large{
+			font-size: calc(var(--font-size-L) * var(--ratio));
+			line-height: calc(var(--font-lineheight-L) * var(--ratio));
+			margin-bottom: calc(var(--margin-M) * var(--ratio));
+		}
+
+		/* */
+
+		p.length1, .length1{
+			max-width: var(--line-body-short);
+		}
+		p.length2, .length2{
+			max-width: var(--line-body-long);
+		}
+		h1, h2, h3, h4, h5{
+			max-width: max(50vw, var(--line-title));
+		}
+
+		/* */
+		html, body,
+		h1, h2, h3, h4, p, small{
+			 font-kerning: normal;
+			letter-spacing: 0;
+/*			letter-spacing: 0.0625rem;*/
+		}
+
+		/* */
+		*,
+		:after,
+		:before {
+		 box-sizing:border-box;
+		 margin:0;
+		 padding:0;
+		}
+		html{
+/*			max-width: 400px;*/
+			margin: auto 10px;
+			padding: 2rem 0;
+			font-family: sans-serif;
+			font-size: calc(var(--ratio) * 100%);
+		}
+		body{/*
+			margin: 1rem 0.5rem;*/
+		}
+		body{
+			--debug-grid: var(--OFF);
+			background: var(--debug-grid, repeating-linear-gradient(0deg, #FFFFFF 0, #FFFFFF 0.5rem, #FF000020 0.5rem, #FF000020 1rem));
+			background-position: 0 -0.75rem; /* WHY IS THERE A SHIFT */
+		}
+		body.grid{
+			--debug-grid: var(--ON);
+		}
+		[id^="wrapper"]{
+			margin-bottom: 2rem;
+		}
+
+	</style>
+</head>
+<body class="gridOFF">
+
+	<div id="wrapper-01" class="fixed" style="--ratio: 1;">
+		<h1>The quick brown fox jumps over the lazy dog (h1)</h1>
+		<h2>The quick brown fox jumps over the lazy dog (h2)</h2>
+		<h3>The quick brown fox jumps over the lazy dog (h3)</h3>
+		<h4>The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h4)</h4>
+		<!--
+		<h6>The quick brown fox jumps over the lazy dog (h6)</h6>
+		-->
+		<p class="length1">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<p class="length1 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+		<p class="length1 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
+		<p class="length1 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+
+		<h5 class="length1">The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h5)</h5>
+
+		<p class="length2">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<p class="length2 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+		<p class="length2 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
+		<p class="length2 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+	</div>
+
+	<div id="wrapper-02" class="ratio" style="--ratio: 1.5;">
+		<h1>The quick brown fox jumps over the lazy dog (h1)</h1>
+		<h2>The quick brown fox jumps over the lazy dog (h2)</h2>
+		<h3>The quick brown fox jumps over the lazy dog (h3)</h3>
+		<h4>The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h4)</h4>
+		<!--
+		<h6>The quick brown fox jumps over the lazy dog (h6)</h6>
+		-->
+		<p class="length1">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<p class="length1 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+		<p class="length1 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
+		<p class="length1 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+
+		<h5 class="length1">The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h5)</h5>
+
+		<p class="length2">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<p class="length2 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+		<p class="length2 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
+		<p class="length2 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+	</div>
+
+</body>
+</html>
