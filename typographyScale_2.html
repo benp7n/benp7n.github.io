@@ -17,22 +17,26 @@
 			--font-size-M:  1.000rem; /* 16px */
 			--font-size-L:  1.125rem; /* 18px */
 
-			--font-size-title5: 1.25rem; /* 20px */
-			--font-size-title4: 1.50rem; /* 24px */
-			--font-size-title3: 2.00rem; /* 32px */
-			--font-size-title2: 2.50rem; /* 40px */
-			--font-size-title1: 3.00rem; /* 48px */
+			--font-size-title6: 1.25rem; /* 20px */
+			--font-size-title5: 1.50rem; /* 24px */
+			--font-size-title4: 2.00rem; /* 32px */
+			--font-size-title3: 2.50rem; /* 40px */
+			--font-size-title2: 3.00rem; /* 48px */
+			--font-size-title1: 3.75rem; /* 60px */
 
 
 			/*  LINE HEIGHT  */
+			--font-lineheight-XS: 1.5rem; /* 24px */
+			--font-lineheight-S: 1.5rem; /* 24px */
 			--font-lineheight-M: 1.5rem; /* 24px */
 			--font-lineheight-L: 2.0rem; /* 32px */
 
-			--font-lineheight-title5: 1.5rem; /* 24px */
-			--font-lineheight-title4: 2.0rem; /* 32px */
-			--font-lineheight-title3: 2.5rem; /* 40px */
-			--font-lineheight-title2: 3.0rem; /* 48px */
-			--font-lineheight-title1: 4.0rem; /* 64px */
+			--font-lineheight-title6: 1.5rem; /* 24px */
+			--font-lineheight-title5: 2.0rem; /* 32px */
+			--font-lineheight-title4: 2.5rem; /* 40px */
+			--font-lineheight-title3: 3.0rem; /* 48px */
+			--font-lineheight-title2: 3.5rem; /* 56px */
+			--font-lineheight-title1: 4.5rem; /* 72px */
 
 			/* FONT WEIGHT */
 			--font-weight-S: 200;
@@ -96,6 +100,13 @@
 			margin-bottom: var(--margin-S);
 		}
 		
+		.fixed h6{
+			font-size: var(--font-size-title6);
+			line-height: var(--font-lineheight-title6);
+			font-weight: var(--font-weight-L);
+			margin-bottom: var(--margin-S);
+		}
+		
 		.fixed p{
 			font-size: var(--font-size-M);
 			line-height: var(--font-lineheight-M);
@@ -105,13 +116,13 @@
 		
 		.fixed .small{
 			font-size: var(--font-size-S);
-			line-height: var(--font-lineheight-M);
+			line-height: var(--font-lineheight-S);
 			margin-bottom: var(--margin-S);
 		}
 		
 		.fixed .x-small{
 			font-size: var(--font-size-XS);
-			line-height: var(--font-lineheight-M);
+			line-height: var(--font-lineheight-XS);
 			margin-bottom: var(--margin-S);
 		}
 		
@@ -151,13 +162,12 @@
 			line-height: calc(var(--font-lineheight-title5) * var(--ratio));
 			margin-bottom: calc(var(--margin-L) * var(--ratio));
 		}
-		
-		.ratio p{
-			font-size: calc(var(--font-size) * var(--ratio));
-			line-height: calc(var(--font-lineheight-M) * var(--ratio));
-			margin-bottom: calc(var(--margin-S) * var(--ratio));
-		}
 
+		.ratio h6{
+			font-size: calc(var(--font-size-title6) * var(--ratio));
+			line-height: calc(var(--font-lineheight-title6) * var(--ratio));
+			margin-bottom: calc(var(--margin-L) * var(--ratio));
+		}
 		
 		.ratio p{
 			font-size: calc(var(--font-size-M) * var(--ratio));
@@ -167,13 +177,13 @@
 		
 		.ratio .small{
 			font-size: calc(var(--font-size-S) * var(--ratio));
-			line-height: calc(var(--font-lineheight-M) * var(--ratio));
+			line-height: calc(var(--font-lineheight-S) * var(--ratio));
 			margin-bottom: calc(var(--margin-S) * var(--ratio));
 		}
 		
 		.ratio .x-small{
 			font-size: calc(var(--font-size-XS) * var(--ratio));
-			line-height: calc(var(--font-lineheight-M) * var(--ratio));
+			line-height: calc(var(--font-lineheight-XS) * var(--ratio));
 			margin-bottom: calc(var(--margin-S) * var(--ratio));
 		}
 		
