@@ -194,21 +194,27 @@
 		}
 
 		/* */
+		p.bold{
+			font-weight: var(--font-weight-L);
+		}
 
-		p.length1, .length1{
+/*		p.length1, .length1{
 			max-width: var(--line-body-short);
 		}
 		p.length2, .length2{
 			max-width: var(--line-body-long);
+		}*/
+		p{
+			max-width: 34rem;
 		}
-		h1, h2, h3, h4, h5{
+		h1, h2, h3, h4, h5, h6{
 			max-width: max(50vw, var(--line-title));
 		}
 
 		/* */
 		html, body,
-		h1, h2, h3, h4, p, small{
-			 font-kerning: normal;
+		h1, h2, h3, h4, h5, h6, p, small{
+			font-kerning: normal;
 			letter-spacing: 0;
 /*			letter-spacing: 0.0625rem;*/
 		}
@@ -240,7 +246,11 @@
 			--debug-grid: var(--ON);
 		}
 		[id^="wrapper"]{
-			margin-bottom: 2rem;
+			margin-bottom: 4rem;
+		}
+		hr{
+			margin : 2rem;
+			border: none;
 		}
 
 	</style>
@@ -248,45 +258,51 @@
 <body class="gridOFF">
 
 	<div id="wrapper-01" class="fixed" style="--ratio: 1;">
-		<h1>The quick brown fox jumps over the lazy dog (h1)</h1>
-		<h2>The quick brown fox jumps over the lazy dog (h2)</h2>
-		<h3>The quick brown fox jumps over the lazy dog (h3)</h3>
-		<h4>The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h4)</h4>
-		<!--
-		<h6>The quick brown fox jumps over the lazy dog (h6)</h6>
-		-->
-		<p class="length1">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<h1>Quick brown, <br/>Jumping zebras, <br/>Lazy dog! (h1)</h1>
+		<h2>Sphinx of black quartz.  <br/>Five boxing wizards.  <br/>Five dozen liquor jugs. (h2)</h2>
+		<h3>Two driven jocks help fax my big quiz. The quick brown fox jumps over the lazy dog. Waltz, bad nymph, for quick jigs vex. (h3)</h3>
+
+		<hr/>
+
+		<h3>The quick brown fox jumps (h3)</h3>
+		<h4>How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h4)</h4>
+		<h5>The five boxing wizards jump quickly. Pack my box with five dozen liquor jugs. Glib jocks quiz nymph to vex dwarf. (h5)</h5>
+		<h6>By Jove, my quick study of lexicography won a prize! A wizard's job is to vex chumps quickly in fog. (h6)</h6>
+
+		<p class="length1 large">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+		<p class="length1 large bold">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
 		<p class="length1 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+		<p class="length1 small bold">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+
+		<h6>A wizard's job is to vex chumps quickly in fog. By Jove, my quick study of lexicography won a prize! (h6)</h6>
+		<p class="length1">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<p class="length1 bold">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
 		<p class="length1 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
-		<p class="length1 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
-
-		<h5 class="length1">The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h5)</h5>
-
-		<p class="length2">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
-		<p class="length2 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
-		<p class="length2 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
-		<p class="length2 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+		<p class="length1 x-small bold">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
 	</div>
 
 	<div id="wrapper-02" class="ratio" style="--ratio: 1.5;">
-		<h1>The quick brown fox jumps over the lazy dog (h1)</h1>
-		<h2>The quick brown fox jumps over the lazy dog (h2)</h2>
-		<h3>The quick brown fox jumps over the lazy dog (h3)</h3>
-		<h4>The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h4)</h4>
-		<!--
-		<h6>The quick brown fox jumps over the lazy dog (h6)</h6>
-		-->
-		<p class="length1">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<h1>Quick brown, <br/>Jumping zebras, <br/>Lazy dog! (h1)</h1>
+		<h2>Sphinx of black quartz.  <br/>Five boxing wizards.  <br/>Five dozen liquor jugs. (h2)</h2>
+		<h3>Two driven jocks help fax my big quiz. The quick brown fox jumps over the lazy dog. Waltz, bad nymph, for quick jigs vex. (h3)</h3>
+
+		<hr/>
+
+		<h3>The quick brown fox jumps (h3)</h3>
+		<h4>How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h4)</h4>
+		<h5>The five boxing wizards jump quickly. Pack my box with five dozen liquor jugs. Glib jocks quiz nymph to vex dwarf. (h5)</h5>
+		<h6>By Jove, my quick study of lexicography won a prize! A wizard's job is to vex chumps quickly in fog. (h6)</h6>
+
+		<p class="length1 large">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+		<p class="length1 large bold">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
 		<p class="length1 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+		<p class="length1 small bold">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
+
+		<h6>A wizard's job is to vex chumps quickly in fog. By Jove, my quick study of lexicography won a prize! (h6)</h6>
+		<p class="length1">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
+		<p class="length1 bold">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
 		<p class="length1 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
-		<p class="length1 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
-
-		<h5 class="length1">The quick brown fox jumps over the lazy dog. How quickly daft jumping zebras vex! Waltz, bad nymph, for quick jigs vex. (h5)</h5>
-
-		<p class="length2">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (base / medium)</p>
-		<p class="length2 small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (small)</p>
-		<p class="length2 x-small">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
-		<p class="length2 large">The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (large)</p>
+		<p class="length1 x-small bold">Waltz, bad nymph, for quick jigs vex. Glib jocks quiz nymph to vex dwarf. Sphinx of black quartz, judge my vow. How quickly daft jumping zebras vex! The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. (x-small)</p>
 	</div>
 
 </body>
